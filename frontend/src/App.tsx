@@ -71,7 +71,7 @@ const unsplashCategoryImages: Record<string, string> = {
   "Boissons & Aloe Vera": "https://images.unsplash.com/photo-1662673143520-721ed4fbe965?auto=format&fit=crop&w=900&q=85",
   "Nutrition": "https://images.unsplash.com/photo-1662673143520-721ed4fbe965?auto=format&fit=crop&w=900&q=85",
   "Gestion du poids": "https://images.unsplash.com/photo-1662673143520-721ed4fbe965?auto=format&fit=crop&w=900&q=85",
-  "Produits de la ruche": "https://images.unsplash.com/photo-1644148290055-1b4b4f6c5b3f?auto=format&fit=crop&w=900&q=85",
+  "Produits de la ruche": "https://images.unsplash.com/photo-1644057703169-755be849071c?auto=format&fit=crop&w=900&q=85",
   "Hygiène": "https://images.unsplash.com/photo-1601092410910-3d2e1151e55d?auto=format&fit=crop&w=900&q=85",
   "Cheveux": "https://images.unsplash.com/photo-1601092410910-3d2e1151e55d?auto=format&fit=crop&w=900&q=85",
   "Soins du corps": "https://images.unsplash.com/photo-1743927773510-cc1ad4f46217?auto=format&fit=crop&w=900&q=85",
