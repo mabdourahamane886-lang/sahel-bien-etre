@@ -211,3 +211,5 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #b69a
 .whatsapp-float-label b{font-size:12px;line-height:1.2;font-weight:700}
 .whatsapp-float-label small{font-size:9px;opacity:.88}
 @media(max-width:700px){.whatsapp-float{right:14px;bottom:calc(18px + env(safe-area-inset-bottom));padding:8px 13px 8px 8px;gap:8px}.whatsapp-float-icon{width:40px;height:40px}.whatsapp-float-label b{font-size:11px}}
+
+.whatsapp-float-icon svg{display:block;width:27px;height:27px;fill:currentColor}
