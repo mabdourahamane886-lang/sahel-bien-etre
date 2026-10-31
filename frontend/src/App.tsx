@@ -261,10 +261,37 @@ export default function App() {
 
       <section className="section-block universe" id="univers">
         <div className="section-heading"><div><span className="kicker">TROUVEZ VOTRE ESSENTIEL</span><h2>Explorez nos univers</h2></div><p>Des catégories pensées pour vous aider à retrouver facilement les produits qui vous intéressent.</p></div>
-        <div className="category-grid">
-          {categories.slice(1).map((category, index) => <button className={'category-tile category-' + index} key={category} onClick={() => { setActiveCategory(category); document.getElementById('boutique')?.scrollIntoView({ behavior: 'smooth' }); }}>
-            <span className="category-number">0{index + 1}</span><span className="category-name">{category}</span><ArrowRight size={18}/>
-          </button>)}
+        <div className="category-grid universe-grid">
+          {categories.slice(1).map((category, index) => {
+            const universeImages = [
+              'https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=900&q=85',
+              'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=900&q=85',
+              'https://images.unsplash.com/photo-1543362906-acfc16c67564?auto=format&fit=crop&w=900&q=85',
+              'https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=900&q=85',
+              'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=900&q=85',
+              'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=900&q=85',
+              'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=85',
+              'https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=900&q=85',
+              'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=85'
+            ];
+            const universeDescriptions = [
+              'Des boissons à base d’aloe vera et des instants de fraîcheur.',
+              'Des références nutritionnelles pour accompagner votre quotidien.',
+              'Une sélection dédiée à vos objectifs de gestion du poids.',
+              'Découvrez les produits issus de la ruche.',
+              'Les essentiels pour vos gestes d’hygiène au quotidien.',
+              'Prenez soin de vos cheveux avec une routine adaptée.',
+              'Des soins pour le confort et l’hydratation du corps.',
+              'Explorez les soins dédiés à votre visage.',
+              'Une touche parfumée pour exprimer votre personnalité.'
+            ];
+            return <button className="category-tile universe-card" key={category} onClick={() => { setActiveCategory(category); document.getElementById('boutique')?.scrollIntoView({ behavior: 'smooth' }); }} aria-label={'Explorer ' + category}>
+              <img className="universe-image" src={universeImages[index]} alt="" loading="lazy"/>
+              <span className="universe-shade"/>
+              <span className="universe-topline"><span className="category-number">0{index + 1}</span><span className="universe-label">UNIVERS SAHEL</span></span>
+              <span className="universe-content"><span className="category-name">{category}</span><span className="universe-description">{universeDescriptions[index]}</span><span className="universe-link">Explorer <ArrowRight size={16}/></span></span>
+            </button>;
+          })}
         </div>
       </section>
 
