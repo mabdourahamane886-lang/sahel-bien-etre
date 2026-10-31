@@ -125,7 +125,7 @@ const officialProductImages: Record<string, string> = {
 ,
   "650": "https://cdn.foreverliving.com/content/products/images/renewing_skin_cr_me_pd_main_512_X_512_1752075353238.jpg"
 ,
-  "652": "https://cdn.foreverliving.com/content/products/images/tight_mask_powder_pd_main_512_X_512_1747998126498.jpg"
+  "652": "https://static.wixstatic.com/media/ad0cb5_1fec4a2299c24d0fb62bb5b063d12647~mv2.png/v1/fill/w_1280%2Ch_1280%2Cal_c%2Cq_90%2Cenc_avif%2Cquality_auto/ad0cb5_1fec4a2299c24d0fb62bb5b063d12647~mv2.png"
 ,
   "653": "https://cdn.foreverliving.com/content/products/images/REPLENISHING_SKIN_OIL_pd_main_512_X_512_1721304850005.jpg"
 ,
