@@ -196,6 +196,7 @@ export default function App() {
   const count = cart.reduce((total, line) => total + line.quantity, 0);
   const featuredProducts = useMemo(() => catalog.filter(product => imageFor(product)), [catalog]);
   const currentFeatured = featuredProducts.length ? featuredProducts[featuredIndex % featuredProducts.length] : null;
+  const heroProduct = catalog.find(product => product.id === '815' && imageFor(product)) || featuredProducts[0] || null;
 
   useEffect(() => {
     if (featuredProducts.length <= 1) return;
@@ -247,23 +248,38 @@ export default function App() {
     </header>
 
     <main>
-      <section className="hero hero-premium" id="accueil">
-        <div className="hero-copy">
-          <div className="hero-kicker"><span className="hero-kicker-line"/> BIENVENUE CHEZ SAHEL BIEN-ÊTRE</div>
-          <h1>Votre bien-être,<br/><em>notre attention.</em></h1>
-          <p>Découvrez une sélection de produits pour accompagner vos habitudes de soin, de beauté et de bien-être au quotidien. Explorez notre boutique et trouvez les références qui vous correspondent.</p>
-          <div className="hero-actions">
-            <a className="button button-dark" href="#boutique">Découvrir la boutique <ArrowRight size={17}/></a>
-            <a className="hero-secondary-link" href="#histoire">En savoir plus <span>↗</span></a>
-          </div>
-          <div className="hero-location"><span className="hero-location-mark"><Check size={13}/></span><span><strong>À votre service à Niamey</strong><small>Niger · Commandes et renseignements</small></span></div>
+      <section className="hero hero-botanical" id="accueil">
+        <div className="hero-botanical-topline">
+          <span>SAHEL BIEN-ÊTRE</span><span>PURE NATURE · SOIN · ÉQUILIBRE</span>
         </div>
-        <div className="hero-visual hero-premium-visual">
-          <div className="hero-image-frame">
-            <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1600&q=90" alt="Produits et soins dans une ambiance naturelle et lumineuse"/>
+        <div className="hero-botanical-content">
+          <div className="hero-botanical-copy">
+            <span className="hero-botanical-kicker"><Leaf size={14}/> LE BIEN-ÊTRE AU NATUREL</span>
+            <h1>La nature<br/><em>prend soin</em><br/>de vous.</h1>
+            <p>Découvrez notre sélection de produits pour prendre soin de vous, jour après jour.</p>
+            <div className="hero-botanical-actions">
+              <a className="hero-botanical-cta" href="#boutique">Explorer la boutique <ArrowRight size={16}/></a>
+              <a className="hero-botanical-textlink" href="#univers">Nos univers <span>↗</span></a>
+            </div>
+            <div className="hero-botanical-proof"><span><Check size={13}/></span><div><b>À votre service à Niamey</b><small>Conseils et commandes sur demande</small></div></div>
           </div>
-          <div className="hero-image-label"><span>SAHEL BIEN-ÊTRE</span><small>Une attention au quotidien</small></div>
-          <div className="hero-floating-card"><span className="hero-floating-icon"><Leaf size={19}/></span><span><strong>Votre espace bien-être</strong><small>Découvrez notre sélection</small></span></div>
+          <div className="hero-botanical-product">
+            <div className="hero-botanical-orbit"></div>
+            <div className="hero-botanical-leaf leaf-one"><Leaf size={50}/></div>
+            <div className="hero-botanical-leaf leaf-two"><Leaf size={34}/></div>
+            {heroProduct && <img className="hero-botanical-packshot" src={imageFor(heroProduct)!} alt={heroProduct.name}/>}
+            <div className="hero-botanical-product-card">
+              <span>NOTRE SÉLECTION</span>
+              <strong>{heroProduct?.name || 'Nos essentiels bien-être'}</strong>
+              <small>{heroProduct?.category || 'Beauté & bien-être'}</small>
+              {heroProduct && <button type="button" onClick={() => addToCart(heroProduct)} className="hero-product-add">Ajouter au panier <ArrowRight size={14}/></button>}
+            </div>
+          </div>
+        </div>
+        <div className="hero-botanical-bottom">
+          <div><span className="botanical-benefit-icon"><Leaf size={17}/></span><span><b>Une sélection soignée</b><small>Des produits à découvrir</small></span></div>
+          <div><span className="botanical-benefit-icon"><Heart size={17}/></span><span><b>Votre bien-être d’abord</b><small>Un accompagnement humain</small></span></div>
+          <div><span className="botanical-benefit-icon"><MapPin size={17}/></span><span><b>Basé à Niamey</b><small>Au cœur du Niger</small></span></div>
         </div>
       </section>
 
