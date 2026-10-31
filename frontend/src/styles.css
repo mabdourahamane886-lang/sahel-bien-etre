@@ -855,3 +855,76 @@ input::placeholder,textarea::placeholder{color:#a0a99e}
  .storefront-product>img{max-height:345px!important}
  .storefront-product-label{width:195px!important}
 }
+
+/* WhatsApp flottant — finition premium, icône officielle vert/blanc */
+.whatsapp-float{
+ position:fixed!important;
+ right:22px!important;
+ bottom:calc(24px + env(safe-area-inset-bottom))!important;
+ z-index:1500!important;
+ display:grid!important;
+ place-items:center!important;
+ width:66px!important;
+ height:66px!important;
+ min-width:66px!important;
+ min-height:66px!important;
+ padding:0!important;
+ margin:0!important;
+ overflow:visible!important;
+ border:3px solid #fff!important;
+ border-radius:50%!important;
+ background:#00C853!important;
+ color:#fff!important;
+ box-shadow:0 7px 22px rgba(0,120,52,.28),0 2px 6px rgba(0,0,0,.10)!important;
+ text-decoration:none!important;
+ isolation:isolate;
+ transition:transform .22s ease,box-shadow .22s ease!important;
+}
+.whatsapp-float:before{
+ content:"";
+ position:absolute;
+ inset:-6px;
+ z-index:-1;
+ border:1px solid rgba(0,200,83,.32);
+ border-radius:50%;
+ pointer-events:none;
+}
+.whatsapp-float:hover{
+ background:#00C853!important;
+ transform:translateY(-3px) scale(1.035)!important;
+ box-shadow:0 11px 28px rgba(0,120,52,.34),0 3px 8px rgba(0,0,0,.10)!important;
+}
+.whatsapp-float:active{transform:scale(.96)!important}
+.whatsapp-float:focus-visible{outline:3px solid rgba(0,200,83,.35)!important;outline-offset:5px!important}
+.whatsapp-float-icon{
+ display:grid!important;
+ place-items:center!important;
+ width:100%!important;
+ height:100%!important;
+ flex:0 0 100%!important;
+ margin:0!important;
+ padding:0!important;
+ border-radius:50%!important;
+ background:#00C853!important;
+ color:#fff!important;
+ line-height:0!important;
+}
+.whatsapp-float-icon svg{
+ display:block!important;
+ width:100%!important;
+ height:100%!important;
+ overflow:visible!important;
+}
+@media(max-width:600px){
+ .whatsapp-float{
+  right:16px!important;
+  bottom:calc(18px + env(safe-area-inset-bottom))!important;
+  width:62px!important;
+  height:62px!important;
+  min-width:62px!important;
+  min-height:62px!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ .whatsapp-float{transition:none!important}
+}
