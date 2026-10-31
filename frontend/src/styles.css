@@ -14,3 +14,28 @@
 @media(max-width:1050px){.site-header{padding:0 4%}.main-nav{gap:17px}.hero{padding-left:7%;padding-right:7%}.product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.catalog-toolbar{align-items:flex-start;flex-direction:column}.search-box{width:100%}}
 @media(max-width:700px){.announcement{font-size:9px;padding:0 8px}.site-header{height:72px;padding:0 5%}.brand-symbol{height:38px;width:38px}.brand-word{font-size:14px;letter-spacing:1.3px}.brand-word small{font-size:7px;letter-spacing:1px}.cart-trigger{padding:8px 10px}.cart-trigger span{display:none}.mobile-toggle{display:grid;place-items:center}.main-nav{display:none;position:absolute;top:72px;left:0;right:0;background:#fff;padding:14px 6% 22px;box-shadow:0 14px 20px #203b2512;flex-direction:column;align-items:stretch;gap:0}.main-nav.is-open{display:flex}.main-nav a{padding:13px 0;border-bottom:1px solid #edf0e9;font-size:12px}.hero{grid-template-columns:1fr;padding:49px 7% 38px;gap:32px}.hero h1{font-size:51px;margin:20px 0 15px}.hero-copy>p{font-size:12px}.hero-actions{gap:15px;flex-wrap:wrap}.hero-visual{padding-left:9px}.hero-visual>img{height:290px}.floating-seal{right:-9px;width:76px;height:76px;font-size:9px}.image-caption{left:23px;bottom:31px}.trust-strip{display:grid;grid-template-columns:1fr;gap:17px;padding:22px 9%}.section-block{padding:59px 6%}.section-heading{display:block;margin-bottom:25px}.section-heading h2,.story-copy h2{font-size:36px}.section-heading>p{margin-top:12px}.category-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.category-tile{height:108px;padding:14px}.category-name{font-size:14px}.category-tile>svg{width:15px}.shop-inner{padding-top:59px;padding-bottom:65px}.shop-heading{display:flex;align-items:end}.catalog-count{font-size:25px}.category-pills{flex-wrap:nowrap;overflow-x:auto;width:100%;padding-bottom:5px}.category-pills button{flex:0 0 auto}.search-box{min-width:0}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product-photo{height:155px}.product-info{padding:12px 10px}.product-info h3{font-size:14px;min-height:36px}.product-info>p{font-size:9px;min-height:48px}.product-footer{margin-top:10px;padding-top:10px}.product-footer strong{font-size:9px}.product-footer button{font-size:8px;padding:7px}.story-section{grid-template-columns:1fr;gap:35px;padding-top:60px;padding-bottom:65px}.story-photo img{height:300px}.story-stamp{right:-7px;width:88px;height:88px;font-size:11px}.story-copy h2{font-size:39px}.contact-band{padding:42px 7%;align-items:flex-start;flex-direction:column}.contact-band h2{font-size:32px}.site-footer{padding:30px 7%;flex-direction:column;align-items:flex-start;gap:13px}.site-footer .legal{text-align:left}.cart-drawer{padding:22px}.toast{bottom:12px}}
 @media(max-width:380px){.brand-word{font-size:12px}.brand-word small{font-size:6px}.hero h1{font-size:45px}.hero-actions .text-link{font-size:10px}.product-photo{height:130px}.product-footer{align-items:flex-start;flex-direction:column}}
+
+
+/* Explorer nos univers — cartes immersives premium */
+.universe.section-block{padding-top:92px;padding-bottom:100px}
+.universe .section-heading{margin-bottom:38px}
+.universe .section-heading h2{font-size:clamp(38px,4vw,52px);letter-spacing:-1px}
+.universe .section-heading>p{max-width:410px;font-size:12px;line-height:2}
+.universe-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.universe-card{position:relative;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;height:285px;min-width:0;overflow:hidden;padding:22px;text-align:left;border:0;background:#244332;color:#fff;isolation:isolate;box-shadow:0 10px 28px #183f3010;transition:transform .35s ease,box-shadow .35s ease}
+.universe-card:hover{background:#244332;transform:translateY(-7px);box-shadow:0 20px 38px #183f3028}
+.universe-image,.universe-shade{position:absolute;inset:0;width:100%;height:100%;z-index:-2}
+.universe-image{object-fit:cover;transition:transform .65s cubic-bezier(.2,.7,.2,1)}
+.universe-card:hover .universe-image{transform:scale(1.08)}
+.universe-shade{z-index:-1;background:linear-gradient(180deg,rgba(12,31,22,.24) 0%,rgba(12,31,22,.16) 32%,rgba(12,31,22,.88) 100%)}
+.universe-topline{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.universe-card .category-number{color:#f0d8a4;font:italic 17px 'Playfair Display',serif}
+.universe-label{font-size:8px;letter-spacing:1.8px;color:#fff9}
+.universe-content{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.universe-card .category-name{font:600 23px/1.12 'Playfair Display',serif;color:#fff}
+.universe-description{max-width:290px;color:#f4f4eddd;font-size:10px;line-height:1.7}
+.universe-link{display:inline-flex;align-items:center;gap:10px;margin-top:5px;padding-bottom:5px;border-bottom:1px solid #e5d2a0;color:#f4dfb2;font-size:10px;font-weight:700;letter-spacing:.5px}
+@media(max-width:900px){.universe-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.universe-card{height:260px}}
+@media(max-width:700px){.universe.section-block{padding-top:62px;padding-bottom:68px}.universe-grid{gap:11px}.universe-card{height:225px;padding:15px}.universe-card .category-name{font-size:18px}.universe-description{font-size:9px}.universe-label{font-size:7px;letter-spacing:1.2px}}
+@media(max-width:380px){.universe-card{height:205px;padding:12px}.universe-card .category-name{font-size:16px}.universe-description{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.universe-card,.universe-image{transition:none}}
