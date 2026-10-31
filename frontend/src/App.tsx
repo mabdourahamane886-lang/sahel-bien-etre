@@ -200,6 +200,14 @@ export default function App() {
 
 
   useEffect(() => {
+    if (featuredProducts.length <= 1) return;
+    const timer = window.setInterval(() => {
+      setFeaturedIndex(current => (current + 1) % featuredProducts.length);
+    }, 5000);
+    return () => window.clearInterval(timer);
+  }, [featuredProducts.length]);
+
+  useEffect(() => {
     if (!supabase) return;
     supabase.from('products').select('id,name,category,description,price_xof,image_url').eq('is_active', true)
       .then(({ data, error }) => { if (!error && data?.length) setDbProducts(data as Product[]); });
