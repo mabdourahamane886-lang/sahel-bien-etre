@@ -171,7 +171,7 @@ const pdfOnlyProducts: Product[] = products
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
-const whatsappNumber = (import.meta.env.VITE_WHATSAPP_NUMBER || '').replace(/\D/g, '');
+const whatsappNumber = (import.meta.env.VITE_WHATSAPP_NUMBER || '22789241713').replace(/\D/g, '');
 const categories = ['Tous', 'Boissons & Aloe Vera', 'Nutrition', 'Gestion du poids', 'Produits de la ruche', 'Hygiène', 'Cheveux', 'Soins du corps', 'Soins du visage', 'Parfums'];
 const money = (value: number | null) => value == null ? 'Prix sur demande' : new Intl.NumberFormat('fr-FR').format(value) + ' FCFA';
 
@@ -333,6 +333,11 @@ export default function App() {
 
       <section className="contact-band" id="contact"><div><span className="kicker">NOUS SOMMES À VOTRE ÉCOUTE</span><h2>Un produit vous intéresse ?</h2><p>Écrivez-nous pour connaître son prix, sa disponibilité et les modalités de livraison.</p></div><a className="button button-light" href={whatsappNumber ? 'https://wa.me/' + whatsappNumber : '#boutique'} target={whatsappNumber ? '_blank' : undefined} rel="noreferrer">{whatsappNumber ? 'Parlons de votre besoin' : 'Voir les produits'} <ArrowRight size={17}/></a></section>
     </main>
+
+    <a className="whatsapp-float" href={'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent('Bonjour SAHEL BIEN-ÊTRE, je souhaite obtenir des informations sur vos produits.') } target="_blank" rel="noopener noreferrer" aria-label="Contacter SAHEL BIEN-ÊTRE sur WhatsApp">
+      <span className="whatsapp-float-icon"><MessageCircle size={25} strokeWidth={2.2}/></span>
+      <span className="whatsapp-float-label"><b>WhatsApp</b><small>Écrivez-nous</small></span>
+    </a>
 
     <footer className="site-footer"><a className="footer-brand" href="#accueil"><Leaf size={22}/> SAHEL <b>BIEN-ÊTRE</b></a><p>Le naturel au quotidien.</p><div className="footer-links"><a href="#boutique">Boutique</a><a href="#histoire">À propos</a><a href="#contact">Contact</a></div><small>© {new Date().getFullYear()} Sahel Bien-Être. Tous droits réservés.</small><small className="legal">Boutique indépendante. Aucune affiliation officielle à Forever Living Products n’est revendiquée.</small></footer>
 
