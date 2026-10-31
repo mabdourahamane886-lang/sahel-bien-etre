@@ -118,6 +118,38 @@ const officialProductImages: Record<string, string> = {
   "063": "https://www.foreverliving.fr/storage/products/images/63.webp",
   "051": "https://www.foreverliving.fr/storage/products/images/51.webp",
   "070": "https://www.foreverliving.fr/storage/products/images/70.webp"
+,
+  "626": "https://cdn.foreverliving.com/content/products/images/Forever_AloeTurm__pd_main_512_X_512_1718193036990.png"
+,
+  "642": "https://www.flpshop.hu/public/cache/a51e4e7244bc4e7daec0b97a20c4932a.jpeg"
+,
+  "650": "https://cdn.foreverliving.com/content/products/images/renewing_skin_cr_me_pd_main_512_X_512_1752075353238.jpg"
+,
+  "652": "https://cdn.foreverliving.com/content/products/images/tight_mask_powder_pd_main_512_X_512_1747998126498.jpg"
+,
+  "653": "https://cdn.foreverliving.com/content/products/images/REPLENISHING_SKIN_OIL_pd_main_512_X_512_1721304850005.jpg"
+,
+  "664": "https://www.foreverliving.fr/storage/products/albums/masque-bio-cellulose/masque-bio-cellulose-2023-05-17-6464e018327b7.webp"
+,
+  "667": "https://flpshop.me/storage/product/images/1086/01JV9H6XKFRYNJPAH9YKDMR4PF.jpeg"
+,
+  "669": "https://cdn.foreverliving.com/content/products/images/logic_soothing_gel_moisturizer___pd_main_512_X_512_1745915176525.png"
+,
+  "672": "https://www.flpshop.hu/public/cache/ceac458bcc4e7daec0b97a20c4932a.jpeg"
+,
+  "677": "https://cdn.foreverliving.com/content/products/images/refining_gel_mask_pd_main_512_X_512_1745920846077.jpg"
+,
+  "686": "https://www.foreverliving.fr/storage/products/images/686.webp"
+,
+  "687": "https://static.wixstatic.com/media/07d5bb_5a08a7145e8b4603893398b07084c0c3~mv2.jpg/v1/fill/w_1000%2Ch_1000%2Cal_c%2Cq_85%2Cenc_avif%2Cquality_auto/07d5bb_5a08a7145e8b4603893398b07084c0c3~mv2.jpg"
+,
+  "836": "https://aloe-shop.de/cdn/shop/files/Forever_Aloe_Vera_Gel_Mango.jpg?v=1752392194"
+,
+  "877": "https://media.cdnws.com/_i/409606/95/824/95/forever-aloe-peche.png"
+,
+  "037": "https://static1.biotus.ua/media/optimization/catalog/product/700/p/h/photo_2023-02-23_13-06-50_jpg.webp"
+,
+  "027": "https://cdn.foreverliving.com/content/products/images/forever_bee_propolis__pd_main_512_X_512_1624009526772.jpg"
 };
 const pdfReferenceIds = new Set(Object.keys(pdfReferenceCorrections));
 const pdfOnlyProducts: Product[] = products
