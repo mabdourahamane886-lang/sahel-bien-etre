@@ -89,25 +89,9 @@ const whatsappNumber = (import.meta.env.VITE_WHATSAPP_NUMBER || '').replace(/\D/
 const categories = ['Tous', 'Boissons & Aloe Vera', 'Nutrition', 'Gestion du poids', 'Produits de la ruche', 'Hygiène', 'Cheveux', 'Soins du corps', 'Soins du visage', 'Parfums'];
 const money = (value: number | null) => value == null ? 'Prix sur demande' : new Intl.NumberFormat('fr-FR').format(value) + ' FCFA';
 
-const imageSets: Record<string, string[]> = {
-  'Boissons & Aloe Vera': ['photo-1600271886742-f049cd451bba','photo-1547592180-85f173990554','photo-1540420773420-3366772f4999','photo-1490645935967-10de6ba17061'],
-  'Nutrition': ['photo-1546069901-ba9599a7e63c','photo-1512621776951-a57141f2eefd','photo-1490645935967-10de6ba17061','photo-1547592180-85f173990554'],
-  'Gestion du poids': ['photo-1511690743698-d9d85f2fbf38','photo-1490645935967-10de6ba17061','photo-1546069901-ba9599a7e63c'],
-  'Produits de la ruche': ['photo-1587049352851-8d4e89133924','photo-1587049633312-d628ae50a8ae','photo-1471943311424-646960669fbc'],
-  'Hygiène': ['photo-1611930022073-b7a4ba5fcccd','photo-1556229010-6c3f2c9ca5f8','photo-1571781926291-c477ebfd024b'],
-  'Cheveux': ['photo-1597931752949-98c74b5b159f','photo-1618553577337-f5006b34f420','photo-1633793566189-8e9fe6f817fc'],
-  'Soins du corps': ['photo-1556229010-6c3f2c9ca5f8','photo-1571781926291-c477ebfd024b','photo-1611930022073-b7a4ba5fcccd','photo-1598440947619-2c35fc9aa908'],
-  'Soins du visage': ['photo-1613803745799-ba6c10aace85','photo-1631390179406-0bfe17e9f89d','photo-1576426863848-c21f53c60b19','photo-1597931752949-98c74b5b159f'],
-  'Parfums': ['photo-1594035910387-fea47794261f','photo-1547887538-e3a2f32cb1cc','photo-1682251008222-412b140cbf4f']
-};
 type Product = { id: string; name: string; category: string; description: string; price_xof: number | null; image_url?: string | null };
 type CartLine = { product: Product; quantity: number };
-const imageFor = (product: Product) => {
-  if (product.image_url?.startsWith('http')) return product.image_url;
-  const pool = imageSets[product.category] || imageSets['Soins du corps'];
-  const index = Math.abs(String(product.id).split('').reduce((sum, char) => sum * 31 + char.charCodeAt(0), 7)) % pool.length;
-  return 'https://images.unsplash.com/' + pool[index] + '?auto=format&fit=crop&w=900&q=85';
-};
+const imageFor = (product: Product): string | null => product.image_url?.startsWith('http') ? product.image_url : null;
 
 export default function App() {
   const [query, setQuery] = useState('');
@@ -207,10 +191,10 @@ export default function App() {
             <label className="search-box"><Search size={18}/><input value={query} onChange={event => setQuery(event.target.value)} placeholder="Rechercher un produit..."/>{query && <button onClick={() => setQuery('')} aria-label="Effacer la recherche"><X size={15}/></button>}</label>
           </div>
           {filtered.length ? <div className="product-grid">{filtered.map(product => <article className="product-card" key={product.id}>
-            <div className="product-photo"><img src={imageFor(product)} alt={'Illustration de ' + product.name} loading="lazy" onError={event => { event.currentTarget.src = 'https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=900&q=80'; }}/><span className="product-category">{product.category}</span><button className="quick-add" onClick={() => addToCart(product)} aria-label={'Ajouter ' + product.name}><Plus size={18}/></button></div>
+            <div className="product-photo">{imageFor(product) ? <img src={imageFor(product)!} alt={product.name} loading="lazy"/> : <div className="product-photo-pending" role="img" aria-label={'Photo officielle indisponible pour ' + product.name}><Leaf size={38}/><span>Photo officielle</span><small>À ajouter</small></div>}<span className="product-category">{product.category}</span><button className="quick-add" onClick={() => addToCart(product)} aria-label={'Ajouter ' + product.name}><Plus size={18}/></button></div>
             <div className="product-info"><small>RÉF. {product.id}</small><h3>{product.name}</h3><p>{product.description}</p><div className="product-footer"><strong>{money(product.price_xof)}</strong><button onClick={() => addToCart(product)}>Ajouter <ArrowRight size={14}/></button></div></div>
           </article>)}</div> : <div className="empty-state"><Search size={28}/><h3>Aucun produit trouvé</h3><p>Essayez un autre mot-clé ou choisissez une autre catégorie.</p><button onClick={() => { setQuery(''); setActiveCategory('Tous'); }}>Réinitialiser les filtres</button></div>}
-          <p className="catalog-disclaimer">Catalogue filtré selon les références présentes dans le PDF Forever Côte d’Ivoire 2024-2025. Les visuels sont encore des illustrations d’ambiance et non les photos officielles des emballages. Les prix et conditionnements sont à confirmer avant commande.</p>
+          <p className="catalog-disclaimer">Catalogue filtré selon les références présentes dans le PDF Forever Côte d’Ivoire 2024-2025. Aucun visuel générique ne représente un produit : les photos officielles des emballages seront ajoutées après vérification. Les prix et conditionnements sont à confirmer avant commande.</p>
         </div>
       </section>
 
@@ -224,7 +208,7 @@ export default function App() {
 
     <footer className="site-footer"><a className="footer-brand" href="#accueil"><Leaf size={22}/> SAHEL <b>BIEN-ÊTRE</b></a><p>Le naturel au quotidien.</p><div className="footer-links"><a href="#boutique">Boutique</a><a href="#histoire">À propos</a><a href="#contact">Contact</a></div><small>© {new Date().getFullYear()} Sahel Bien-Être. Tous droits réservés.</small><small className="legal">Boutique indépendante. Aucune affiliation officielle à Forever Living Products n’est revendiquée.</small></footer>
 
-    {cartOpen && <div className="drawer-backdrop" onClick={() => setCartOpen(false)}><aside className="cart-drawer" onClick={event => event.stopPropagation()}><div className="drawer-head"><div><span className="kicker">VOTRE SÉLECTION</span><h2>Mon panier ({count})</h2></div><button onClick={() => setCartOpen(false)} aria-label="Fermer le panier"><X/></button></div>{cart.length ? <><div className="cart-lines">{cart.map(line => <div className="cart-line" key={line.product.id}><img src={imageFor(line.product)} alt=""/><div className="cart-line-copy"><b>{line.product.name}</b><small>{money(line.product.price_xof)}</small><div className="quantity"><button onClick={() => changeQuantity(line.product.id, -1)} aria-label="Diminuer"><Minus size={13}/></button><span>{line.quantity}</span><button onClick={() => changeQuantity(line.product.id, 1)} aria-label="Augmenter"><Plus size={13}/></button></div></div></div>)}</div><p className="cart-hint">Le prix final et la disponibilité seront confirmés avant validation.</p><a className="button button-dark checkout" href={whatsappLink} target={whatsappNumber ? '_blank' : undefined} rel="noreferrer">Demander ma commande <ArrowRight size={17}/></a></> : <div className="cart-empty"><ShoppingBag size={35}/><h3>Votre panier est vide</h3><p>Ajoutez des produits pour préparer votre demande.</p><button onClick={() => setCartOpen(false)}>Continuer mes achats</button></div>}</aside></div>}
+    {cartOpen && <div className="drawer-backdrop" onClick={() => setCartOpen(false)}><aside className="cart-drawer" onClick={event => event.stopPropagation()}><div className="drawer-head"><div><span className="kicker">VOTRE SÉLECTION</span><h2>Mon panier ({count})</h2></div><button onClick={() => setCartOpen(false)} aria-label="Fermer le panier"><X/></button></div>{cart.length ? <><div className="cart-lines">{cart.map(line => <div className="cart-line" key={line.product.id}>{imageFor(line.product) ? <img src={imageFor(line.product)!} alt={line.product.name}/> : <div className="cart-product-placeholder"><Leaf size={18}/></div>}<div className="cart-line-copy"><b>{line.product.name}</b><small>{money(line.product.price_xof)}</small><div className="quantity"><button onClick={() => changeQuantity(line.product.id, -1)} aria-label="Diminuer"><Minus size={13}/></button><span>{line.quantity}</span><button onClick={() => changeQuantity(line.product.id, 1)} aria-label="Augmenter"><Plus size={13}/></button></div></div></div>)}</div><p className="cart-hint">Le prix final et la disponibilité seront confirmés avant validation.</p><a className="button button-dark checkout" href={whatsappLink} target={whatsappNumber ? '_blank' : undefined} rel="noreferrer">Demander ma commande <ArrowRight size={17}/></a></> : <div className="cart-empty"><ShoppingBag size={35}/><h3>Votre panier est vide</h3><p>Ajoutez des produits pour préparer votre demande.</p><button onClick={() => setCartOpen(false)}>Continuer mes achats</button></div>}</aside></div>}
     {notice && <div className="toast"><Check size={16}/>{notice}<button onClick={() => setNotice('')} aria-label="Fermer"><X size={15}/></button></div>}
   </div>;
 }
