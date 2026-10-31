@@ -105,3 +105,45 @@ button:active,.button:active,.text-link:active{animation:touchFlash .34s ease-ou
 @keyframes productProgress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @media(max-width:700px){.featured-products{padding:28px 16px 40px}.featured-single{width:min(100%,390px);aspect-ratio:4/5}.featured-caption>small{font-size:15px}}
 @media(prefers-reduced-motion:reduce){.featured-single img,.featured-progress span{animation:none}}
+
+
+/* ===== SAHEL BIEN-ÊTRE — fluidité globale ===== */
+:root{scroll-behavior:smooth;--motion-ease:cubic-bezier(.22,.7,.25,1)}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.site-shell{isolation:isolate}
+.site-header{transition:background .3s ease,box-shadow .3s ease,border-color .3s ease}
+.main-nav a,.footer-links a,.button,.text-link,.cart-trigger,.mobile-toggle,
+.category-tile,.category-pills button,.product-card,.quick-add,.product-footer button,
+.featured-info button,.universe-card,.contact-band a,.drawer-head button,.quantity-control button{
+  transition:color .24s var(--motion-ease),background-color .24s var(--motion-ease),border-color .24s var(--motion-ease),box-shadow .28s var(--motion-ease),transform .28s var(--motion-ease),opacity .24s var(--motion-ease);
+}
+button,a{-webkit-tap-highlight-color:rgba(182,154,97,.16)}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #b69a61;outline-offset:3px}
+.button:active,.cart-trigger:active,.category-pills button:active,.product-footer button:active,.quick-add:active,.contact-band a:active{transform:scale(.97);box-shadow:0 0 0 5px rgba(182,154,97,.16)}
+.product-card:hover,.universe-card:hover{box-shadow:0 16px 38px rgba(30,58,39,.10)}
+.product-photo img,.story-photo img,.hero-visual>img{will-change:transform}
+.product-photo img{transition:transform .65s var(--motion-ease),filter .4s ease}
+.product-card:hover .product-photo img{transform:scale(1.055);filter:saturate(1.06)}
+.section-heading,.hero-copy,.hero-visual,.trust-strip>div,.story-copy,.contact-band>div{animation:sahelSoftRise .7s var(--motion-ease) both}
+.category-tile,.universe-card,.product-card{animation:sahelSoftRise .55s var(--motion-ease) both}
+.category-tile:nth-child(2),.universe-card:nth-child(2),.product-card:nth-child(2){animation-delay:.04s}
+.category-tile:nth-child(3),.universe-card:nth-child(3),.product-card:nth-child(3){animation-delay:.08s}
+.category-tile:nth-child(4),.universe-card:nth-child(4),.product-card:nth-child(4){animation-delay:.12s}
+@keyframes sahelSoftRise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.drawer-backdrop{backdrop-filter:blur(5px);animation:sahelFade .2s ease both}
+.cart-drawer{animation:sahelDrawerIn .32s var(--motion-ease) both}
+@keyframes sahelFade{from{opacity:0}to{opacity:1}}
+@keyframes sahelDrawerIn{from{transform:translateX(28px);opacity:.7}to{transform:translateX(0);opacity:1}}
+.toast{animation:sahelToastIn .3s var(--motion-ease) both}
+@keyframes sahelToastIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(hover:none){.product-card:hover,.universe-card:hover{transform:none;box-shadow:none}}
+@media(max-width:700px){
+  .site-header{box-shadow:0 5px 22px rgba(30,58,39,.045)}
+  .main-nav.is-open{animation:sahelMenuIn .24s var(--motion-ease) both}
+  @keyframes sahelMenuIn{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:translateY(0)}}
+  .section-block{scroll-margin-top:78px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
