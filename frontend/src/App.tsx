@@ -65,6 +65,15 @@ const pdfReferenceCorrections: Record<string, { id: string; name: string; catego
   "643": { id: "643", name: "Forever Alofa™ Fine Fragrance", category: "Parfums" },
   "644": { id: "644", name: "Forever Malosi™ Fine Fragrance", category: "Parfums" }
 };
+const officialProductImages: Record<string, string> = {
+  "815": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/forever-aloe-vera-gel.jpg",
+  "048": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/forever-absorbent-c.jpg",
+  "284": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/aloe-avocado-face-body-soap.jpg",
+  "067": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/aloe-ever-shield.jpg",
+  "028": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/forever-bright-toothgel.jpg",
+  "022": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/aloe-lips.jpg",
+  "061": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/aloe-vera-gelly.jpg"
+};
 const pdfReferenceIds = new Set(Object.keys(pdfReferenceCorrections));
 const pdfOnlyProducts: Product[] = products
   .filter(product => pdfReferenceIds.has(product.id))
@@ -77,7 +86,7 @@ const pdfOnlyProducts: Product[] = products
       category: official.category,
       description: "Référence issue du catalogue Forever Côte d’Ivoire 2024-2025. Conditionnement et disponibilité à confirmer.",
       price_xof: null,
-      image_url: null
+      image_url: officialProductImages[product.id] ?? null
     };
   })
   .filter((product, index, all) => all.findIndex(item => item.id === product.id) === index);
@@ -194,7 +203,7 @@ export default function App() {
             <div className="product-photo">{imageFor(product) ? <img src={imageFor(product)!} alt={product.name} loading="lazy"/> : <div className="product-photo-pending" role="img" aria-label={'Photo officielle indisponible pour ' + product.name} style={{height:'100%',minHeight:220,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:10,color:'#71836e',background:'linear-gradient(145deg,#f4f6ef,#e8eee2)'}}><Leaf size={38}/><span style={{fontWeight:600}}>Photo officielle</span><small>En cours de vérification</small></div>}<span className="product-category">{product.category}</span><button className="quick-add" onClick={() => addToCart(product)} aria-label={'Ajouter ' + product.name}><Plus size={18}/></button></div>
             <div className="product-info"><small>RÉF. {product.id}</small><h3>{product.name}</h3><p>{product.description}</p><div className="product-footer"><strong>{money(product.price_xof)}</strong><button onClick={() => addToCart(product)}>Ajouter <ArrowRight size={14}/></button></div></div>
           </article>)}</div> : <div className="empty-state"><Search size={28}/><h3>Aucun produit trouvé</h3><p>Essayez un autre mot-clé ou choisissez une autre catégorie.</p><button onClick={() => { setQuery(''); setActiveCategory('Tous'); }}>Réinitialiser les filtres</button></div>}
-          <p className="catalog-disclaimer">Catalogue filtré selon les références présentes dans le PDF Forever Côte d’Ivoire 2024-2025. Aucun visuel générique ne représente un produit : les photos officielles des emballages seront ajoutées après vérification. Les prix et conditionnements sont à confirmer avant commande.</p>
+          <p className="catalog-disclaimer">Catalogue filtré selon les références présentes dans le PDF Forever Côte d’Ivoire 2024-2025. Les visuels affichés sont les fichiers originaux fournis et associés uniquement aux références correspondantes. Les autres photos seront ajoutées lorsqu’une carte correspondante sera confirmée. Les prix, conditionnements et disponibilités sont à confirmer avant commande.</p>
         </div>
       </section>
 
