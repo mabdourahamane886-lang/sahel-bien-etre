@@ -663,3 +663,112 @@ input::placeholder,textarea::placeholder{color:#a0a99e}
  .storefront-mini-card>div>strong{font-size:13px}
 }
 @media(prefers-reduced-motion:reduce){.storefront-product>img,.storefront-mini-card,.storefront-primary{transition:none!important}}
+
+
+/* RECONSTRUCTION FINALE — vitrine stable et correctement dimensionnée */
+.hero-storefront{
+ display:block!important;
+ width:min(calc(100% - 48px),1320px)!important;
+ max-width:1320px!important;
+ margin:26px auto 0!important;
+ padding:0!important;
+ background:transparent!important;
+}
+.storefront-banner{
+ box-sizing:border-box!important;
+ display:grid!important;
+ grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+ align-items:center!important;
+ gap:clamp(20px,4vw,64px)!important;
+ width:100%!important;
+ min-height:clamp(390px,39vw,510px)!important;
+ padding:clamp(30px,5vw,72px)!important;
+ overflow:hidden!important;
+ border-radius:8px!important;
+}
+.storefront-copy{width:100%!important;max-width:560px!important;min-width:0!important;justify-self:start!important}
+.storefront-copy h1{max-width:560px!important;font-size:clamp(42px,4.5vw,68px)!important;line-height:1.02!important;overflow-wrap:normal!important}
+.storefront-copy p{max-width:440px!important;font-size:clamp(12px,1vw,14px)!important}
+.storefront-product{
+ position:relative!important;
+ display:flex!important;
+ width:100%!important;
+ height:clamp(320px,34vw,430px)!important;
+ min-height:0!important;
+ align-items:center!important;
+ justify-content:center!important;
+ justify-self:stretch!important;
+ overflow:visible!important;
+}
+.storefront-product:before{width:min(78%,390px)!important;max-width:390px!important}
+.storefront-product>img{
+ display:block!important;
+ position:relative!important;
+ width:auto!important;
+ height:auto!important;
+ max-width:78%!important;
+ max-height:clamp(290px,31vw,400px)!important;
+ object-fit:contain!important;
+ object-position:center!important;
+}
+.storefront-product-label{right:0!important;bottom:2px!important;width:min(220px,58%)!important;max-width:220px!important}
+.storefront-stamp{right:24px!important;top:20px!important}
+.storefront-benefits{width:100%!important;box-sizing:border-box!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.storefront-collection{width:min(calc(100% - 48px),1320px)!important;max-width:1320px!important;margin:52px auto 44px!important}
+.storefront-product-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.storefront-mini-card{min-width:0!important;overflow:hidden!important}
+.storefront-mini-card>div>strong{overflow-wrap:anywhere}
+@media(min-width:1000px){
+ .storefront-banner{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)!important}
+ .storefront-product>img{max-width:72%!important}
+}
+@media(min-width:601px) and (max-width:900px){
+ .hero-storefront,.storefront-collection{width:calc(100% - 32px)!important}
+ .storefront-banner{min-height:350px!important;padding:28px 32px!important;gap:18px!important}
+ .storefront-copy h1{font-size:clamp(34px,5vw,46px)!important}
+ .storefront-product{height:300px!important}
+ .storefront-product>img{max-height:275px!important;max-width:82%!important}
+ .storefront-product-label{width:165px!important;padding:10px!important}
+ .storefront-stamp{right:14px!important;top:12px!important}
+ .storefront-mini-card{grid-template-columns:75px minmax(0,1fr)!important}
+ .storefront-mini-image{width:75px!important;height:95px!important}
+}
+@media(max-width:600px){
+ .hero-storefront{width:calc(100% - 20px)!important;margin:12px auto 0!important}
+ .storefront-banner{
+  display:flex!important;flex-direction:column!important;align-items:stretch!important;
+  gap:0!important;min-height:0!important;padding:25px 17px 14px!important;
+  border-radius:8px!important;
+ }
+ .storefront-copy{max-width:none!important;width:100%!important}
+ .storefront-copy h1{font-size:clamp(37px,10.8vw,49px)!important;line-height:1.01!important;margin:13px 0 10px!important}
+ .storefront-copy p{font-size:11px!important;line-height:1.7!important;max-width:100%!important}
+ .storefront-actions{display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:14px!important;margin-top:17px!important}
+ .storefront-primary{min-height:42px!important;padding:0 13px!important;font-size:9px!important}
+ .storefront-product{
+  width:100%!important;height:255px!important;min-height:255px!important;
+  margin:6px 0 0!important;overflow:visible!important;
+ }
+ .storefront-product:before{width:min(68%,245px)!important}
+ .storefront-product>img{max-width:66%!important;max-height:245px!important;width:auto!important;height:auto!important}
+ .storefront-product-label{right:0!important;bottom:0!important;width:min(178px,62%)!important;padding:9px 10px!important}
+ .storefront-product-label strong{font-size:12px!important}
+ .storefront-product-label small{font-size:8px!important}
+ .storefront-product-label button{font-size:8px!important;padding:7px 9px!important}
+ .storefront-stamp{right:11px!important;top:10px!important;padding:6px 8px!important;font-size:8px!important}
+ .storefront-benefits{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px!important;padding:12px 5px!important}
+ .storefront-benefits>div{display:flex!important;flex-direction:column!important;justify-content:center!important;gap:5px!important;text-align:center!important;font-size:8px!important}
+ .storefront-benefits>div>span{width:27px!important;height:27px!important}
+ .storefront-collection{width:calc(100% - 20px)!important;margin:34px auto 28px!important}
+ .storefront-collection-heading{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:10px!important}
+ .storefront-product-grid{grid-template-columns:1fr!important;gap:10px!important}
+ .storefront-mini-card{grid-template-columns:88px minmax(0,1fr)!important;gap:11px!important}
+ .storefront-mini-image{width:88px!important;height:96px!important}
+}
+@media(max-width:360px){
+ .storefront-banner{padding-left:13px!important;padding-right:13px!important}
+ .storefront-copy h1{font-size:36px!important}
+ .storefront-product{height:230px!important;min-height:230px!important}
+ .storefront-product>img{max-height:220px!important}
+ .storefront-product-label{width:58%!important}
+}
