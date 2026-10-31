@@ -200,3 +200,14 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #b69a
  .product-footer button{font-size:8px;padding:8px 10px}
 }
 @media(max-width:360px){.product-grid{gap:8px}.product-info{padding:10px 9px}.product-footer{align-items:flex-start;flex-direction:column}}
+
+
+/* Bouton WhatsApp flottant — contact professionnel */
+.whatsapp-float{position:fixed;z-index:1200;right:22px;bottom:26px;display:flex;align-items:center;gap:11px;padding:9px 17px 9px 10px;border:1px solid rgba(255,255,255,.7);border-radius:999px;background:#168653;color:#fff;text-decoration:none;box-shadow:0 9px 28px rgba(14,105,62,.28);transition:transform .25s ease,box-shadow .25s ease,background .25s ease}
+.whatsapp-float:hover{transform:translateY(-3px);background:#117346;box-shadow:0 14px 34px rgba(14,105,62,.34)}
+.whatsapp-float:active{transform:scale(.96)}
+.whatsapp-float-icon{width:43px;height:43px;display:grid;place-items:center;border-radius:50%;background:#fff;color:#168653}
+.whatsapp-float-label{display:flex;flex-direction:column;gap:2px}
+.whatsapp-float-label b{font-size:12px;line-height:1.2;font-weight:700}
+.whatsapp-float-label small{font-size:9px;opacity:.88}
+@media(max-width:700px){.whatsapp-float{right:14px;bottom:calc(18px + env(safe-area-inset-bottom));padding:8px 13px 8px 8px;gap:8px}.whatsapp-float-icon{width:40px;height:40px}.whatsapp-float-label b{font-size:11px}}
