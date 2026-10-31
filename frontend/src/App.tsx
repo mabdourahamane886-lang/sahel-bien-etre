@@ -219,7 +219,6 @@ export default function App() {
     : '#contact';
 
   return <div className="site-shell">
-    <div className="announcement"><Sparkles size={13}/> Votre espace bien-être à Niamey <span>•</span> Commandes et renseignements sur demande</div>
     <header className="site-header">
       <a className="brand" href="#accueil" aria-label="Sahel Bien-Être, accueil">
         <span className="brand-symbol"><Leaf size={24}/></span>
