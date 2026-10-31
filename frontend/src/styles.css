@@ -480,3 +480,82 @@ input::placeholder,textarea::placeholder{color:#a0a99e}
  .hero-botanical-bottom small{font-size:6.5px}
 }
 @media(prefers-reduced-motion:reduce){.hero-botanical-packshot{animation:none}}
+
+
+/* RESPONSIVE FINAL — accueil botanique PC, tablette et Android */
+.hero-botanical{
+  box-sizing:border-box;
+  width:min( calc(100% - 56px), 1380px);
+  margin:28px auto 42px;
+}
+.hero-botanical *{box-sizing:border-box}
+.hero-botanical-content{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr)}
+.hero-botanical-copy{min-width:0}
+.hero-botanical-copy h1{max-width:100%;overflow-wrap:normal}
+.hero-botanical-product{min-width:0;width:100%}
+.hero-botanical-packshot{max-width:100%;object-position:center}
+.hero-botanical-product-card{max-width:min(250px,70%)}
+.hero-botanical-bottom{align-items:center}
+@media(min-width:1200px){
+ .hero-botanical{padding-left:6%;padding-right:6%}
+ .hero-botanical-content{min-height:510px;grid-template-columns:.88fr 1.12fr;gap:3%}
+ .hero-botanical-copy h1{font-size:clamp(76px,6.5vw,104px)}
+ .hero-botanical-product{min-height:470px}
+ .hero-botanical-packshot{height:440px;width:min(76%,440px)}
+}
+@media(min-width:651px) and (max-width:900px){
+ .hero-botanical{width:calc(100% - 32px);padding-left:4%;padding-right:4%;border-radius:22px}
+ .hero-botanical-topline{height:55px}
+ .hero-botanical-content{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:1%;min-height:365px;padding:22px 0 12px}
+ .hero-botanical-copy h1{font-size:clamp(49px,7.2vw,66px);letter-spacing:-2px}
+ .hero-botanical-copy>p{font-size:11px}
+ .hero-botanical-product{min-height:340px}
+ .hero-botanical-packshot{height:315px;width:82%}
+ .hero-botanical-product-card{right:-4px;min-width:0;width:190px;padding:11px}
+ .hero-botanical-bottom{gap:8px}
+ .hero-botanical-bottom>div{gap:7px}
+ .hero-botanical-bottom b{font-size:8px}
+ .hero-botanical-bottom small{font-size:7px}
+}
+@media(max-width:650px){
+ .hero-botanical{
+   width:calc(100% - 24px);max-width:520px;margin:12px auto 25px;
+   padding:0 16px 16px;border-radius:18px;overflow:hidden
+ }
+ .hero-botanical-topline{height:48px;gap:8px}
+ .hero-botanical-topline span:first-child{font-size:12px;white-space:nowrap}
+ .hero-botanical-topline span:last-child{font-size:6px;letter-spacing:.7px;text-align:right}
+ .hero-botanical-content{display:flex;flex-direction:column;gap:0;min-height:0;padding:23px 0 12px}
+ .hero-botanical-copy{width:100%;padding:0}
+ .hero-botanical-kicker{font-size:7px;letter-spacing:1.2px}
+ .hero-botanical-copy h1{font-size:clamp(48px,13.2vw,67px);line-height:.91;letter-spacing:-2px;margin:15px 0 12px}
+ .hero-botanical-copy>p{font-size:11px;line-height:1.7;max-width:100%;margin:0}
+ .hero-botanical-actions{display:flex;flex-wrap:wrap;gap:15px;margin-top:17px}
+ .hero-botanical-cta{min-height:42px;padding:0 14px;font-size:9px}
+ .hero-botanical-textlink{font-size:9px}
+ .hero-botanical-proof{margin-top:17px;gap:8px}
+ .hero-botanical-proof b{font-size:9px}
+ .hero-botanical-proof small{font-size:8px}
+ .hero-botanical-product{width:100%;min-height:270px;margin:4px 0 0;overflow:visible}
+ .hero-botanical-orbit{width:72%;max-width:280px;box-shadow:0 0 0 12px rgba(255,255,255,.16),0 0 0 25px rgba(255,255,255,.1)}
+ .hero-botanical-packshot{width:76%;max-width:290px;height:265px;object-fit:contain}
+ .hero-botanical-product-card{right:0;bottom:3px;min-width:0;width:min(185px,65%);padding:9px 10px;gap:4px}
+ .hero-botanical-product-card strong{font-size:12px;line-height:1.2}
+ .hero-botanical-product-card small{font-size:8px}
+ .hero-product-add{padding:8px;font-size:8px}
+ .hero-botanical-leaf.leaf-one{right:4%;top:9%}
+ .hero-botanical-leaf.leaf-two{left:4%;bottom:15%}
+ .hero-botanical-bottom{grid-template-columns:1fr;gap:9px;padding-top:13px}
+ .hero-botanical-bottom>div{justify-content:flex-start;gap:9px}
+ .botanical-benefit-icon{width:29px;height:29px;flex:0 0 29px}
+ .hero-botanical-bottom b{font-size:8px}
+ .hero-botanical-bottom small{font-size:7px}
+}
+@media(max-width:360px){
+ .hero-botanical{width:calc(100% - 16px);padding-left:12px;padding-right:12px}
+ .hero-botanical-copy h1{font-size:46px}
+ .hero-botanical-product{min-height:240px}
+ .hero-botanical-packshot{height:235px}
+ .hero-botanical-topline span:last-child{font-size:5px}
+ .hero-botanical-actions{gap:11px}
+}
