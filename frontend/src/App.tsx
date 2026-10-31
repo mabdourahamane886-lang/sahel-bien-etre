@@ -187,12 +187,21 @@ export default function App() {
   const [cartOpen, setCartOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [notice, setNotice] = useState('');
+  const [featuredStart, setFeaturedStart] = useState(0);
   const catalog: Product[] = pdfOnlyProducts;
   const filtered = useMemo(() => catalog.filter(product =>
     (activeCategory === 'Tous' || product.category === activeCategory) &&
     (product.name + ' ' + product.category + ' ' + product.description).toLowerCase().includes(query.toLowerCase())
   ), [catalog, activeCategory, query]);
   const count = cart.reduce((total, line) => total + line.quantity, 0);
+  const featuredProducts = useMemo(() => catalog.filter(product => imageFor(product)), [catalog]);
+  const visibleFeatured = Array.from({ length: Math.min(6, featuredProducts.length) }, (_, index) => featuredProducts[(featuredStart + index) % featuredProducts.length]).filter(Boolean);
+
+  useEffect(() => {
+    if (featuredProducts.length <= 6) return;
+    const timer = window.setInterval(() => setFeaturedStart(current => (current + 6) % featuredProducts.length), 5200);
+    return () => window.clearInterval(timer);
+  }, [featuredProducts.length]);
 
   useEffect(() => {
     if (!supabase) return;
@@ -251,6 +260,17 @@ export default function App() {
           <div className="image-caption"><span>SAHEL BIEN-ÊTRE</span><small>Prendre soin de soi, naturellement.</small></div>
           <div className="floating-seal"><Leaf size={22}/><span>Inspiré<br/>par la nature</span></div>
         </div>
+      </section>
+
+      <section className="featured-products section-block" aria-label="Sélection de six produits Forever Niger 2026">
+        <div className="section-heading"><div><span className="kicker">SÉLECTION FOREVER NIGER 2026</span><h2>À découvrir en ce moment</h2></div><p>Une sélection de six produits mis en avant, renouvelée automatiquement.</p></div>
+        <div className="featured-grid" key={featuredStart}>
+          {visibleFeatured.map(product => <article className="featured-card" key={product.id}>
+            <div className="featured-photo"><img src={imageFor(product)!} alt={product.name} loading="lazy"/><span>RÉF. {product.id}</span></div>
+            <div className="featured-info"><small>{product.category}</small><h3>{product.name}</h3><p>{money(product.price_xof)}</p><button onClick={() => addToCart(product)} aria-label={'Ajouter ' + product.name + ' au panier'}><Plus size={15}/> Ajouter</button></div>
+          </article>)}
+        </div>
+        <div className="featured-footer"><span>{featuredProducts.length ? Math.min(6, featuredProducts.length) : 0} produits présentés</span><a href="#boutique">Voir tout le catalogue <ArrowRight size={15}/></a></div>
       </section>
 
       <section className="trust-strip" aria-label="Nos engagements">
