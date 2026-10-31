@@ -213,3 +213,11 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #b69a
 @media(max-width:700px){.whatsapp-float{right:14px;bottom:calc(18px + env(safe-area-inset-bottom));padding:8px 13px 8px 8px;gap:8px}.whatsapp-float-icon{width:40px;height:40px}.whatsapp-float-label b{font-size:11px}}
 
 .whatsapp-float-icon svg{display:block;width:27px;height:27px;fill:currentColor}
+
+
+/* WhatsApp flottant : icône seule, sans libellé */
+.whatsapp-float{width:58px;height:58px;padding:0;gap:0;justify-content:center;border:2px solid #168653;border-radius:50%;background:#fff;color:#168653;box-shadow:0 8px 24px rgba(14,105,62,.25)}
+.whatsapp-float:hover{background:#fff;transform:translateY(-3px);box-shadow:0 12px 30px rgba(14,105,62,.32)}
+.whatsapp-float-icon{width:50px;height:50px;background:#fff;color:#168653}
+.whatsapp-float-icon svg{width:42px;height:42px}
+@media(max-width:700px){.whatsapp-float{width:54px;height:54px;padding:0}.whatsapp-float-icon{width:47px;height:47px}.whatsapp-float-icon svg{width:40px;height:40px}}
