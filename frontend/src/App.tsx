@@ -198,11 +198,6 @@ export default function App() {
   const currentFeatured = featuredProducts.length ? featuredProducts[featuredIndex % featuredProducts.length] : null;
   const heroProduct = catalog.find(product => product.id === '815' && imageFor(product)) || featuredProducts[0] || null;
 
-  useEffect(() => {
-    if (featuredProducts.length <= 1) return;
-    const timer = window.setInterval(() => setFeaturedIndex(current => (current + 1) % featuredProducts.length), 5000);
-    return () => window.clearInterval(timer);
-  }, [featuredProducts.length]);
 
   useEffect(() => {
     if (!supabase) return;
