@@ -328,3 +328,65 @@ input::placeholder,textarea::placeholder{color:#a0a99e}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
 }
+
+/* Nouvelle page d’accueil premium SAHEL BIEN-ÊTRE */
+.hero-premium{
+  position:relative;isolation:isolate;min-height:620px;overflow:hidden;
+  padding:76px max(8%,calc((100% - 1240px)/2));
+  grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:7%;
+  background:radial-gradient(ellipse at 78% 18%,rgba(255,255,255,.9),transparent 36%),linear-gradient(115deg,#f5f5ed 0%,#eaf0e5 55%,#e4ebdf 100%);
+}
+.hero-premium:before{content:"";position:absolute;z-index:-1;width:470px;height:470px;border:1px solid rgba(117,143,105,.16);border-radius:50%;right:-150px;top:-210px}
+.hero-premium .hero-copy{position:relative;z-index:2;padding:8px 0 18px}
+.hero-kicker{display:flex;align-items:center;gap:12px;color:#8d7952;font-size:9px;letter-spacing:2px;font-weight:700}
+.hero-kicker-line{width:32px;height:1px;background:#b69a61}
+.hero-premium .hero-copy h1{font:600 clamp(48px,5.4vw,76px)/1.07 'Playfair Display',serif;letter-spacing:-2px;color:#193f2e;margin:25px 0 22px}
+.hero-premium .hero-copy h1 em{color:#829875;font-style:italic}
+.hero-premium .hero-copy>p{max-width:470px;font-size:13px;line-height:2.05;color:#68776a}
+.hero-premium .hero-actions{gap:25px;margin-top:32px}
+.hero-premium .button-dark{min-height:52px;padding:16px 22px;border-radius:7px}
+.hero-secondary-link{display:inline-flex;align-items:center;gap:9px;color:#49634e;text-decoration:none;font-size:11px;font-weight:700;border-bottom:1px solid #bdc9b7;padding:0 0 7px;transition:gap .2s,color .2s}
+.hero-secondary-link:hover{gap:14px;color:#987a45}
+.hero-location{display:flex;align-items:center;gap:11px;margin-top:37px}
+.hero-location-mark{width:27px;height:27px;display:grid;place-items:center;border-radius:50%;background:#dce7d6;color:#52754c}
+.hero-location>span:last-child{display:flex;flex-direction:column;gap:4px}
+.hero-location strong{font-size:10px;color:#3e5d45;font-weight:700}
+.hero-location small{font-size:9px;color:#879286}
+.hero-premium-visual{padding:0 0 27px 22px;min-width:0}
+.hero-premium-visual:before{inset:24px 22px 0 0;border:1px solid rgba(119,145,106,.42)}
+.hero-image-frame{position:relative;z-index:1;overflow:hidden;background:#e6e9df;box-shadow:0 24px 60px rgba(35,57,39,.16)}
+.hero-image-frame img{display:block;width:100%;height:425px;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.25,1)}
+.hero-premium-visual:hover .hero-image-frame img{transform:scale(1.035)}
+.hero-image-label{position:absolute;z-index:2;left:42px;bottom:45px;padding:15px 19px;background:rgba(255,255,255,.94);box-shadow:0 8px 24px rgba(30,48,32,.08);display:flex;flex-direction:column;gap:5px}
+.hero-image-label span{font-size:9px;letter-spacing:1.7px;color:#294b36;font-weight:700}
+.hero-image-label small{font-size:9px;color:#849083}
+.hero-floating-card{position:absolute;z-index:3;right:-13px;top:38px;display:flex;align-items:center;gap:11px;padding:13px 16px;background:rgba(255,255,255,.96);border:1px solid rgba(225,232,219,.9);box-shadow:0 12px 30px rgba(34,58,38,.12);border-radius:10px}
+.hero-floating-icon{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#eef3e9;color:#68865d}
+.hero-floating-card>span:last-child{display:flex;flex-direction:column;gap:4px}
+.hero-floating-card strong{font:600 12px 'Playfair Display',serif;color:#31523a}
+.hero-floating-card small{font-size:9px;color:#8a9488}
+@media(max-width:900px){
+ .hero-premium{padding-left:6%;padding-right:6%;gap:5%;min-height:560px}
+ .hero-image-frame img{height:370px}
+ .hero-floating-card{right:-8px}
+}
+@media(max-width:700px){
+ .hero-premium{display:flex;flex-direction:column;align-items:stretch;gap:38px;padding:48px 6% 56px;min-height:0}
+ .hero-premium .hero-copy{padding:0}
+ .hero-kicker{font-size:8px;letter-spacing:1.6px}
+ .hero-premium .hero-copy h1{font-size:clamp(43px,12vw,58px);letter-spacing:-1.3px;margin:21px 0 16px}
+ .hero-premium .hero-copy>p{font-size:12px;line-height:1.9}
+ .hero-premium .hero-actions{gap:17px;margin-top:25px;flex-wrap:wrap}
+ .hero-premium .button-dark{min-height:48px;padding:14px 17px;font-size:10px}
+ .hero-secondary-link{font-size:10px}
+ .hero-location{margin-top:25px}
+ .hero-premium-visual{padding:0 0 18px 12px;width:calc(100% - 8px)}
+ .hero-premium-visual:before{inset:14px 12px 0 0}
+ .hero-image-frame img{height:auto;aspect-ratio:1.08/1;object-fit:cover}
+ .hero-image-label{left:25px;bottom:31px;padding:11px 13px}
+ .hero-image-label span{font-size:8px}
+ .hero-floating-card{right:-8px;top:18px;padding:9px 11px;gap:8px}
+ .hero-floating-icon{width:30px;height:30px}
+ .hero-floating-card strong{font-size:10px}
+ .hero-floating-card small{font-size:8px}
+}
