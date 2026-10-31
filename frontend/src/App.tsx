@@ -247,18 +247,23 @@ export default function App() {
     </header>
 
     <main>
-      <section className="hero" id="accueil">
+      <section className="hero hero-premium" id="accueil">
         <div className="hero-copy">
-          <div className="eyebrow"><span/> BEAUTÉ · NATURE · ÉQUILIBRE</div>
-          <h1>Le bien-être<br/><em>commence ici.</em></h1>
-          <p>Un univers dédié aux gestes qui font du bien. Découvrez une sélection de références Forever Living : aloe vera, nutrition, soins et beauté.</p>
-          <div className="hero-actions"><a className="button button-dark" href="#boutique">Explorer la boutique <ArrowRight size={17}/></a><a className="text-link" href="#histoire">Découvrir notre univers</a></div>
-          <div className="hero-note"><span className="note-icon"><Check size={14}/></span> Une boutique indépendante basée à Niamey, Niger.</div>
+          <div className="hero-kicker"><span className="hero-kicker-line"/> BIENVENUE CHEZ SAHEL BIEN-ÊTRE</div>
+          <h1>Votre bien-être,<br/><em>notre attention.</em></h1>
+          <p>Découvrez une sélection de produits pour accompagner vos habitudes de soin, de beauté et de bien-être au quotidien. Explorez notre boutique et trouvez les références qui vous correspondent.</p>
+          <div className="hero-actions">
+            <a className="button button-dark" href="#boutique">Découvrir la boutique <ArrowRight size={17}/></a>
+            <a className="hero-secondary-link" href="#histoire">En savoir plus <span>↗</span></a>
+          </div>
+          <div className="hero-location"><span className="hero-location-mark"><Check size={13}/></span><span><strong>À votre service à Niamey</strong><small>Niger · Commandes et renseignements</small></span></div>
         </div>
-        <div className="hero-visual">
-          <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1400&q=90" alt="Ambiance naturelle de soins et de beauté"/>
-          <div className="image-caption"><span>SAHEL BIEN-ÊTRE</span><small>Prendre soin de soi, naturellement.</small></div>
-          <div className="floating-seal"><Leaf size={22}/><span>Inspiré<br/>par la nature</span></div>
+        <div className="hero-visual hero-premium-visual">
+          <div className="hero-image-frame">
+            <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1600&q=90" alt="Produits et soins dans une ambiance naturelle et lumineuse"/>
+          </div>
+          <div className="hero-image-label"><span>SAHEL BIEN-ÊTRE</span><small>Une attention au quotidien</small></div>
+          <div className="hero-floating-card"><span className="hero-floating-icon"><Leaf size={19}/></span><span><strong>Votre espace bien-être</strong><small>Découvrez notre sélection</small></span></div>
         </div>
       </section>
 
