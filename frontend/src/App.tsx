@@ -248,38 +248,39 @@ export default function App() {
     </header>
 
     <main>
-      <section className="hero hero-botanical" id="accueil">
-        <div className="hero-botanical-topline">
-          <span>SAHEL BIEN-ÊTRE</span><span>PURE NATURE · SOIN · ÉQUILIBRE</span>
-        </div>
-        <div className="hero-botanical-content">
-          <div className="hero-botanical-copy">
-            <span className="hero-botanical-kicker"><Leaf size={14}/> LE BIEN-ÊTRE AU NATUREL</span>
-            <h1>La nature<br/><em>prend soin</em><br/>de vous.</h1>
-            <p>Découvrez notre sélection de produits pour prendre soin de vous, jour après jour.</p>
-            <div className="hero-botanical-actions">
-              <a className="hero-botanical-cta" href="#boutique">Explorer la boutique <ArrowRight size={16}/></a>
-              <a className="hero-botanical-textlink" href="#univers">Nos univers <span>↗</span></a>
-            </div>
-            <div className="hero-botanical-proof"><span><Check size={13}/></span><div><b>À votre service à Niamey</b><small>Conseils et commandes sur demande</small></div></div>
-          </div>
-          <div className="hero-botanical-product">
-            <div className="hero-botanical-orbit"></div>
-            <div className="hero-botanical-leaf leaf-one"><Leaf size={50}/></div>
-            <div className="hero-botanical-leaf leaf-two"><Leaf size={34}/></div>
-            {heroProduct && <img className="hero-botanical-packshot" src={imageFor(heroProduct)!} alt={heroProduct.name}/>}
-            <div className="hero-botanical-product-card">
-              <span>NOTRE SÉLECTION</span>
-              <strong>{heroProduct?.name || 'Nos essentiels bien-être'}</strong>
-              <small>{heroProduct?.category || 'Beauté & bien-être'}</small>
-              {heroProduct && <button type="button" onClick={() => addToCart(heroProduct)} className="hero-product-add">Ajouter au panier <ArrowRight size={14}/></button>}
+      <section className="hero hero-storefront" id="accueil">
+        <div className="storefront-banner">
+          <div className="storefront-copy">
+            <span className="storefront-kicker">SAHEL BIEN-ÊTRE · NIAMEY</span>
+            <h1>Rafraîchissez,<br/><em>hydratez,</em><br/>prenez soin de vous.</h1>
+            <p>Découvrez notre sélection de produits pour vos routines beauté, soin et bien-être au quotidien.</p>
+            <div className="storefront-actions">
+              <a className="storefront-primary" href="#boutique">Découvrir la boutique <ArrowRight size={16}/></a>
+              <a className="storefront-secondary" href="#univers">En savoir plus</a>
             </div>
           </div>
+          <div className="storefront-product">
+            {heroProduct && <img src={imageFor(heroProduct)!} alt={heroProduct.name} />}
+            <div className="storefront-product-label"><span>À DÉCOUVRIR</span><strong>{heroProduct?.name || 'Nos essentiels bien-être'}</strong><small>{heroProduct?.category || 'Beauté & bien-être'}</small>
+              {heroProduct && <button type="button" onClick={() => addToCart(heroProduct)} aria-label={'Ajouter '+heroProduct.name+' au panier'}><ShoppingBag size={15}/> Ajouter au panier</button>}
+            </div>
+          </div>
+          <div className="storefront-stamp"><Leaf size={17}/><span>Le bien-être<br/>au naturel</span></div>
         </div>
-        <div className="hero-botanical-bottom">
-          <div><span className="botanical-benefit-icon"><Leaf size={17}/></span><span><b>Une sélection soignée</b><small>Des produits à découvrir</small></span></div>
-          <div><span className="botanical-benefit-icon"><Heart size={17}/></span><span><b>Votre bien-être d’abord</b><small>Un accompagnement humain</small></span></div>
-          <div><span className="botanical-benefit-icon"><MapPin size={17}/></span><span><b>Basé à Niamey</b><small>Au cœur du Niger</small></span></div>
+        <div className="storefront-benefits">
+          <div><span><Leaf size={17}/></span><b>Une sélection soignée</b></div>
+          <div><span><Heart size={17}/></span><b>À votre écoute</b></div>
+          <div><span><MapPin size={17}/></span><b>À Niamey, Niger</b></div>
+        </div>
+      </section>
+
+      <section className="storefront-collection" aria-label="Sélection de produits">
+        <div className="storefront-collection-heading"><div><span>À DÉCOUVRIR</span><h2>Nos essentiels du moment</h2><p>Des produits sélectionnés pour accompagner votre quotidien.</p></div><a href="#boutique">Voir toute la boutique <ArrowRight size={15}/></a></div>
+        <div className="storefront-product-grid">
+          {catalog.filter(product => imageFor(product)).slice(0,3).map(product => <article className="storefront-mini-card" key={product.id}>
+            <button className="storefront-mini-image" type="button" onClick={() => { setActiveCategory(product.category); document.getElementById('boutique')?.scrollIntoView({behavior:'smooth'}); }} aria-label={'Voir '+product.name}><img src={imageFor(product)!} alt={product.name}/></button>
+            <div><small>{product.category}</small><strong>{product.name}</strong><button type="button" onClick={() => addToCart(product)}><ShoppingBag size={14}/> Ajouter</button></div>
+          </article>)}
         </div>
       </section>
 
