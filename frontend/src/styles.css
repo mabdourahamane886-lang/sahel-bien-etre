@@ -390,3 +390,93 @@ input::placeholder,textarea::placeholder{color:#a0a99e}
  .hero-floating-card strong{font-size:10px}
  .hero-floating-card small{font-size:8px}
 }
+
+
+/* ACCUEIL BOTANIQUE — composition inspirée du modèle fourni */
+.hero-botanical{
+  position:relative;isolation:isolate;overflow:hidden;
+  margin:22px auto 34px;width:min( calc(100% - 48px), 1440px);
+  padding:0 5.2% 22px;border-radius:28px;
+  color:#173e2c;background:linear-gradient(135deg,#f8f8ed 0%,#eef3e6 48%,#dce9d3 100%);
+  box-shadow:0 22px 65px rgba(35,68,42,.12);
+}
+.hero-botanical:before,.hero-botanical:after{content:"";position:absolute;z-index:-1;border-radius:50%;pointer-events:none}
+.hero-botanical:before{width:520px;height:520px;right:12%;top:9%;background:radial-gradient(circle,rgba(190,211,161,.48),rgba(190,211,161,0) 70%)}
+.hero-botanical:after{width:420px;height:420px;left:-220px;bottom:-270px;border:1px solid rgba(82,120,73,.18);box-shadow:0 0 0 30px rgba(255,255,255,.12),0 0 0 60px rgba(255,255,255,.1)}
+.hero-botanical-topline{height:62px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(44,77,48,.12);font-size:9px;letter-spacing:1.8px;font-weight:800;color:#365b3d}
+.hero-botanical-topline span:first-child{font:700 15px 'Playfair Display',Georgia,serif;letter-spacing:1.2px}
+.hero-botanical-topline span:last-child{font-size:8px;letter-spacing:1.7px;color:#788b70}
+.hero-botanical-content{min-height:470px;display:grid;grid-template-columns:.86fr 1.14fr;align-items:center;gap:2%;padding:30px 0 20px}
+.hero-botanical-copy{position:relative;z-index:2;padding:8px 0 20px}
+.hero-botanical-kicker{display:flex;align-items:center;gap:9px;color:#718c5d;font-size:9px;font-weight:800;letter-spacing:2px}
+.hero-botanical-copy h1{margin:23px 0 18px;color:#123d2a;font:700 clamp(56px,7vw,100px)/.88 'Playfair Display',Georgia,serif;letter-spacing:-3.5px}
+.hero-botanical-copy h1 em{color:#7b9669;font-weight:500}
+.hero-botanical-copy>p{max-width:390px;color:#647565;font-size:13px;line-height:1.9}
+.hero-botanical-actions{display:flex;align-items:center;gap:24px;margin-top:27px}
+.hero-botanical-cta{min-height:48px;display:inline-flex;align-items:center;gap:13px;padding:0 19px;border-radius:999px;background:#17452f;color:#fff;text-decoration:none;font-size:10px;font-weight:800;box-shadow:0 8px 20px rgba(23,69,47,.18);transition:transform .22s,box-shadow .22s,background .22s}
+.hero-botanical-cta:hover{transform:translateY(-3px);background:#245b3c;box-shadow:0 12px 26px rgba(23,69,47,.25)}
+.hero-botanical-textlink{display:inline-flex;gap:9px;align-items:center;color:#49664c;text-decoration:none;font-size:10px;font-weight:800;border-bottom:1px solid #b7c5ae;padding:0 0 6px}
+.hero-botanical-textlink:hover{color:#9a804d;gap:13px}
+.hero-botanical-proof{display:flex;align-items:center;gap:10px;margin-top:34px}
+.hero-botanical-proof>span{width:27px;height:27px;display:grid;place-items:center;border-radius:50%;background:#dce9d5;color:#507a4a}
+.hero-botanical-proof div{display:flex;flex-direction:column;gap:3px}
+.hero-botanical-proof b{font-size:10px;color:#3f5d42}
+.hero-botanical-proof small{font-size:9px;color:#879384}
+.hero-botanical-product{position:relative;min-height:430px;display:flex;align-items:center;justify-content:center;isolation:isolate}
+.hero-botanical-orbit{position:absolute;z-index:-1;width:min(82%,440px);aspect-ratio:1;border-radius:50%;border:1px solid rgba(96,130,77,.22);box-shadow:0 0 0 22px rgba(255,255,255,.16),0 0 0 46px rgba(255,255,255,.1);background:radial-gradient(circle,rgba(255,255,255,.76),rgba(221,235,207,.12) 68%,transparent 69%)}
+.hero-botanical-product:before{content:"";position:absolute;z-index:-1;inset:12% 2% 0;background:radial-gradient(ellipse at 50% 85%,rgba(51,91,42,.22),transparent 58%)}
+.hero-botanical-packshot{position:relative;z-index:1;width:min(70%,380px);height:390px;object-fit:contain;filter:drop-shadow(0 22px 20px rgba(32,58,31,.22));animation:botanicalFloat 5s ease-in-out infinite}
+.hero-botanical-leaf{position:absolute;z-index:0;color:#7e9c68;opacity:.7;filter:drop-shadow(0 7px 8px rgba(43,72,35,.12))}
+.hero-botanical-leaf svg{fill:rgba(126,156,104,.22);stroke-width:1.1}
+.leaf-one{right:9%;top:13%;transform:rotate(32deg)}
+.leaf-two{left:10%;bottom:18%;transform:rotate(-38deg)}
+.hero-botanical-product-card{position:absolute;z-index:3;right:0;bottom:17px;display:flex;flex-direction:column;gap:6px;min-width:205px;padding:14px 16px;background:rgba(255,255,249,.94);border:1px solid rgba(255,255,255,.9);border-radius:12px;box-shadow:0 12px 30px rgba(39,67,37,.13);backdrop-filter:blur(8px)}
+.hero-botanical-product-card>span{font-size:8px;font-weight:800;letter-spacing:1.6px;color:#8a9b7a}
+.hero-botanical-product-card strong{font:600 16px 'Playfair Display',Georgia,serif;color:#244a31}
+.hero-botanical-product-card small{font-size:9px;color:#879183}
+.hero-product-add{margin-top:5px;display:flex;align-items:center;justify-content:space-between;gap:8px;border:0;border-radius:7px;background:#e7efe1;color:#315b39;padding:9px 11px;font-size:9px;font-weight:800;cursor:pointer;transition:background .2s,transform .2s}
+.hero-product-add:hover{background:#d7e5ce;transform:translateY(-1px)}
+.hero-botanical-bottom{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(44,77,48,.15);padding-top:17px;gap:16px}
+.hero-botanical-bottom>div{display:flex;align-items:center;justify-content:center;gap:10px}
+.botanical-benefit-icon{width:34px;height:34px;display:grid;place-items:center;border:1px solid rgba(79,113,67,.25);border-radius:50%;color:#55764a;background:rgba(255,255,255,.42)}
+.hero-botanical-bottom>div>span:last-child{display:flex;flex-direction:column;gap:4px}
+.hero-botanical-bottom b{font-size:9px;color:#3d5d40}
+.hero-botanical-bottom small{font-size:8px;color:#879384}
+@keyframes botanicalFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@media(max-width:900px){
+ .hero-botanical{width:calc(100% - 30px);padding-left:5%;padding-right:5%}
+ .hero-botanical-content{min-height:410px;grid-template-columns:.9fr 1.1fr}
+ .hero-botanical-copy h1{font-size:clamp(52px,7.6vw,76px)}
+ .hero-botanical-product{min-height:380px}
+ .hero-botanical-packshot{height:340px}
+}
+@media(max-width:650px){
+ .hero-botanical{width:calc(100% - 20px);margin:12px auto 24px;padding:0 18px 17px;border-radius:20px}
+ .hero-botanical-topline{height:49px}
+ .hero-botanical-topline span:first-child{font-size:13px}
+ .hero-botanical-topline span:last-child{font-size:6px;letter-spacing:1px}
+ .hero-botanical-content{display:flex;flex-direction:column;gap:4px;min-height:0;padding:27px 0 15px;align-items:stretch}
+ .hero-botanical-copy{padding:0}
+ .hero-botanical-kicker{font-size:8px;letter-spacing:1.5px}
+ .hero-botanical-copy h1{font-size:clamp(53px,15vw,76px);line-height:.9;letter-spacing:-2.5px;margin:17px 0 13px}
+ .hero-botanical-copy>p{font-size:11px;line-height:1.75;max-width:330px}
+ .hero-botanical-actions{gap:17px;margin-top:19px}
+ .hero-botanical-cta{min-height:43px;padding:0 15px;font-size:9px}
+ .hero-botanical-textlink{font-size:9px}
+ .hero-botanical-proof{margin-top:18px}
+ .hero-botanical-proof b{font-size:9px}
+ .hero-botanical-product{min-height:300px;margin-top:0}
+ .hero-botanical-orbit{width:78%;box-shadow:0 0 0 14px rgba(255,255,255,.16),0 0 0 30px rgba(255,255,255,.1)}
+ .hero-botanical-packshot{width:74%;height:285px}
+ .hero-botanical-product-card{right:0;bottom:4px;min-width:164px;padding:10px 11px;gap:4px}
+ .hero-botanical-product-card strong{font-size:13px}
+ .hero-product-add{padding:8px;font-size:8px}
+ .hero-botanical-leaf svg{width:36px;height:36px}
+ .hero-botanical-bottom{gap:5px;padding-top:13px}
+ .hero-botanical-bottom>div{justify-content:flex-start;gap:6px}
+ .botanical-benefit-icon{width:27px;height:27px;flex:0 0 27px}
+ .botanical-benefit-icon svg{width:14px;height:14px}
+ .hero-botanical-bottom b{font-size:7px}
+ .hero-botanical-bottom small{font-size:6.5px}
+}
+@media(prefers-reduced-motion:reduce){.hero-botanical-packshot{animation:none}}
