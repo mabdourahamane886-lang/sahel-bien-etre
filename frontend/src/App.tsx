@@ -187,7 +187,7 @@ export default function App() {
   const [cartOpen, setCartOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [notice, setNotice] = useState('');
-  const [featuredStart, setFeaturedStart] = useState(0);
+  const [featuredIndex, setFeaturedIndex] = useState(0);
   const catalog: Product[] = pdfOnlyProducts;
   const filtered = useMemo(() => catalog.filter(product =>
     (activeCategory === 'Tous' || product.category === activeCategory) &&
@@ -195,11 +195,11 @@ export default function App() {
   ), [catalog, activeCategory, query]);
   const count = cart.reduce((total, line) => total + line.quantity, 0);
   const featuredProducts = useMemo(() => catalog.filter(product => imageFor(product)), [catalog]);
-  const visibleFeatured = Array.from({ length: Math.min(6, featuredProducts.length) }, (_, index) => featuredProducts[(featuredStart + index) % featuredProducts.length]).filter(Boolean);
+  const currentFeatured = featuredProducts.length ? featuredProducts[featuredIndex % featuredProducts.length] : null;
 
   useEffect(() => {
-    if (featuredProducts.length <= 6) return;
-    const timer = window.setInterval(() => setFeaturedStart(current => (current + 6) % featuredProducts.length), 5200);
+    if (featuredProducts.length <= 1) return;
+    const timer = window.setInterval(() => setFeaturedIndex(current => (current + 1) % featuredProducts.length), 5000);
     return () => window.clearInterval(timer);
   }, [featuredProducts.length]);
 
@@ -262,15 +262,11 @@ export default function App() {
         </div>
       </section>
 
-      <section className="featured-products section-block" aria-label="Sélection de six produits Forever Niger 2026">
-        <div className="section-heading"><div><span className="kicker">SÉLECTION FOREVER NIGER 2026</span><h2>À découvrir en ce moment</h2></div><p>Une sélection de six produits mis en avant, renouvelée automatiquement.</p></div>
-        <div className="featured-grid" key={featuredStart}>
-          {visibleFeatured.map(product => <article className="featured-card" key={product.id}>
-            <div className="featured-photo"><img src={imageFor(product)!} alt={product.name} loading="lazy"/><span>RÉF. {product.id}</span></div>
-            <div className="featured-info"><small>{product.category}</small><h3>{product.name}</h3><p>{money(product.price_xof)}</p><button onClick={() => addToCart(product)} aria-label={'Ajouter ' + product.name + ' au panier'}><Plus size={15}/> Ajouter</button></div>
-          </article>)}
+      <section className="featured-products section-block" aria-label="Présentation des produits Forever Niger 2026">
+        <div className="featured-single" key={currentFeatured?.id || 'empty'}>
+          {currentFeatured && <img src={imageFor(currentFeatured)!} alt={currentFeatured.name} loading="eager"/>}
         </div>
-        <div className="featured-footer"><span>{featuredProducts.length ? Math.min(6, featuredProducts.length) : 0} produits présentés</span><a href="#boutique">Voir tout le catalogue <ArrowRight size={15}/></a></div>
+        <div className="featured-caption"><span>FOREVER NIGER 2026</span><small>{currentFeatured?.name || 'Nos produits'}</small><div className="featured-progress"><span key={currentFeatured?.id || 'empty'} /></div></div>
       </section>
 
       <section className="trust-strip" aria-label="Nos engagements">
