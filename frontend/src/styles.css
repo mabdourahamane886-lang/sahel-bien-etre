@@ -236,3 +236,95 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #b69a
 .whatsapp-float-icon{display:block;width:64px;height:64px;flex:0 0 64px;margin:0;padding:0;border-radius:50%;background:#00C853;line-height:0}
 .whatsapp-float-icon svg{display:block;width:100%;height:100%;overflow:visible}
 @media(max-width:700px){.whatsapp-float{right:16px;bottom:calc(18px + env(safe-area-inset-bottom));width:58px;height:58px;min-width:58px;min-height:58px}.whatsapp-float-icon{width:58px;height:58px;flex-basis:58px}}
+
+
+/* =========================================================
+   SAHEL BIEN-ÊTRE — finition UI professionnelle & fluide
+   Couleurs, contenus et fonctionnalités métier préservés.
+   ========================================================= */
+:root{
+  --forest:#173f2e;--forest-2:#24583d;--sage:#8fa27c;--gold:#b69a61;
+  --cream:#fbfaf6;--ui-ease:cubic-bezier(.22,.68,0,1);
+  --ui-shadow:0 10px 30px rgba(26,61,42,.09);
+}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{-webkit-font-smoothing:antialiased}
+button,a,input,select,textarea{ -webkit-tap-highlight-color:transparent}
+a,button{transition:color .22s var(--ui-ease),background-color .22s var(--ui-ease),border-color .22s var(--ui-ease),box-shadow .22s var(--ui-ease),transform .22s var(--ui-ease)}
+button{font-weight:600}
+:where(button,a,input,select,textarea,[tabindex]):focus-visible{
+  outline:3px solid rgba(182,154,97,.48);outline-offset:3px
+}
+:where(button:not(:disabled),.button,.text-link,.cart-trigger,.quick-add,.product-footer button){
+  cursor:pointer
+}
+:where(button:not(:disabled),.button,.cart-trigger,.quick-add,.product-footer button):active{
+  transform:translateY(1px) scale(.985)
+}
+/* Boutons d’action : contrastés, nets et cohérents */
+.button{min-height:48px;padding:14px 21px;border-radius:8px;font-size:11px;font-weight:700;letter-spacing:.35px}
+.button-dark{background:linear-gradient(135deg,#173f2e,#285b40);box-shadow:0 7px 18px rgba(23,63,46,.16)}
+.button-dark:hover{background:linear-gradient(135deg,#24583d,#34704c);box-shadow:0 11px 24px rgba(23,63,46,.22);transform:translateY(-2px)}
+.button-light{border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.text-link{font-weight:700;transition:gap .22s var(--ui-ease),color .22s,border-color .22s}
+.text-link:hover{gap:14px;color:#987a45;border-color:#b69a61}
+.cart-trigger{min-height:44px;border-radius:12px;padding:8px 12px;font-weight:700;box-shadow:0 2px 8px rgba(24,63,48,.035)}
+.cart-trigger:hover{border-color:#b9c9b1;background:#f5f8f2;box-shadow:0 5px 15px rgba(24,63,48,.08)}
+.cart-trigger b{font-variant-numeric:tabular-nums}
+/* En-tête plus net, menu et actions */
+.site-header{transition:box-shadow .25s ease,background .25s ease}
+.main-nav a{position:relative;padding:10px 0;font-weight:600}
+.main-nav a:after{content:"";position:absolute;left:0;right:100%;bottom:3px;height:1px;background:var(--gold);transition:right .24s var(--ui-ease)}
+.main-nav a:hover:after{right:0}
+.mobile-toggle{width:43px;height:43px;display:none;align-items:center;justify-content:center;border:1px solid #e2e9df;border-radius:12px;background:#fff;transition:background .2s,transform .2s}
+.mobile-toggle:hover{background:#f1f5ed}
+.mobile-toggle:active{transform:scale(.96)}
+/* Catégories et filtres */
+.category-tile{border-radius:13px;box-shadow:0 3px 12px rgba(28,58,39,.025)}
+.category-tile:hover{box-shadow:0 10px 22px rgba(28,58,39,.07)}
+.category-pills button{border-radius:999px;padding:9px 15px;font-weight:600;transition:all .2s var(--ui-ease)}
+.category-pills button:hover{border-color:#aabda2;background:#fff;color:#234b34;transform:translateY(-1px)}
+.category-pills button.active,.category-pills button[aria-pressed="true"]{background:#1b4933;color:#fff;border-color:#1b4933;box-shadow:0 4px 12px rgba(27,73,51,.15)}
+/* Recherche, formulaires et sélecteurs */
+input,select,textarea{border:1px solid #dfe6dc;border-radius:9px;background:#fff;color:#294535;transition:border-color .2s,box-shadow .2s}
+input:focus,select:focus,textarea:focus{border-color:#8fa27c;box-shadow:0 0 0 4px rgba(143,162,124,.14);outline:0}
+input::placeholder,textarea::placeholder{color:#a0a99e}
+/* Cartes et interactions */
+.product-card,.universe-card{will-change:transform}
+.product-card:hover{box-shadow:0 16px 34px rgba(28,58,39,.11)}
+.quick-add{width:42px;height:42px;border-radius:14px;background:linear-gradient(145deg,#1d5037,#2d6948);box-shadow:0 6px 16px rgba(21,54,37,.22);transition:transform .22s var(--ui-ease),box-shadow .22s,background .22s}
+.quick-add:hover{background:#34734e;transform:translateY(-2px) scale(1.04);box-shadow:0 9px 20px rgba(21,54,37,.27)}
+.product-footer button{min-height:36px;border-radius:9px;font-weight:700;transition:all .22s var(--ui-ease)}
+.product-footer button:hover{box-shadow:0 5px 12px rgba(30,73,52,.16)}
+/* Panier, notifications et panneaux */
+.drawer-backdrop{background:rgba(18,37,27,.38);backdrop-filter:blur(7px)}
+.cart-drawer{box-shadow:-18px 0 55px rgba(18,45,30,.18)}
+.toast{border:1px solid rgba(255,255,255,.7);border-radius:12px;box-shadow:var(--ui-shadow)}
+/* Mouvement subtil, jamais agressif */
+.hero-copy,.hero-visual,.section-heading{animation:sahelSoftRise .65s var(--ui-ease) both}
+.hero-visual{animation-delay:.08s}
+@media(hover:hover){
+  .button:hover,.cart-trigger:hover,.quick-add:hover,.product-footer button:hover{will-change:transform}
+}
+@media(max-width:900px){
+  .site-header{padding-left:5%;padding-right:5%}
+  .main-nav{gap:18px}
+  .hero{padding-left:6%;padding-right:6%}
+}
+@media(max-width:700px){
+  .site-header{height:72px;padding-left:4.5%;padding-right:4.5%}
+  .mobile-toggle{display:flex}
+  .main-nav{border:1px solid #e8ede4;border-radius:0 0 16px 16px;box-shadow:0 16px 28px rgba(23,63,46,.1)}
+  .main-nav a{display:block;padding:13px 16px;border-radius:8px}
+  .main-nav a:hover{background:#f2f5ee}
+  .hero{padding-top:48px;padding-bottom:52px}
+  .hero-actions{gap:13px;flex-wrap:wrap}
+  .button{min-height:46px;padding:13px 16px}
+  .section-block{padding-top:62px;padding-bottom:62px}
+  .section-heading h2,.story-copy h2,.contact-band h2{font-size:clamp(30px,8vw,38px)}
+  .category-tile{border-radius:11px}
+  .quick-add{width:36px;height:36px;border-radius:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+}
