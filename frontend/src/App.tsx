@@ -324,9 +324,6 @@ export default function App() {
           </div>
           <div className="storefront-product">
             {heroProduct && <img src={imageFor(heroProduct)!} alt={heroProduct.name} />}
-            <div className="storefront-product-label"><span>À DÉCOUVRIR</span><strong>{heroProduct?.name || 'Nos essentiels bien-être'}</strong><small>{heroProduct?.category || 'Beauté & bien-être'}</small>
-              {heroProduct && <button type="button" onClick={() => addToCart(heroProduct)} aria-label={'Ajouter '+heroProduct.name+' au panier'}><ShoppingBag size={15}/> Ajouter au panier</button>}
-            </div>
           </div>
           <div className="storefront-stamp"><Leaf size={17}/><span>Le bien-être<br/>au naturel</span></div>
         </div>
