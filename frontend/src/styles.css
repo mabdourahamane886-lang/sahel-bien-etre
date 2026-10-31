@@ -928,3 +928,49 @@ input::placeholder,textarea::placeholder{color:#a0a99e}
 @media(prefers-reduced-motion:reduce){
  .whatsapp-float{transition:none!important}
 }
+
+
+/* Finition demandée : photo d'accueil fixe et WhatsApp simple */
+.featured-single img{
+ animation:none!important;
+ transform:none!important;
+ transition:none!important;
+}
+.featured-progress{display:none!important}
+.whatsapp-float{
+ right:20px!important;
+ bottom:calc(20px + env(safe-area-inset-bottom))!important;
+ width:58px!important;
+ height:58px!important;
+ min-width:58px!important;
+ min-height:58px!important;
+ padding:0!important;
+ border:0!important;
+ border-radius:50%!important;
+ background:#25D366!important;
+ box-shadow:0 4px 14px rgba(0,0,0,.18)!important;
+}
+.whatsapp-float:before{display:none!important;content:none!important}
+.whatsapp-float:hover{
+ background:#20bd5a!important;
+ transform:translateY(-2px)!important;
+ box-shadow:0 6px 18px rgba(0,0,0,.2)!important;
+}
+.whatsapp-float-icon{
+ width:44px!important;
+ height:44px!important;
+ flex:0 0 44px!important;
+ background:transparent!important;
+ color:#fff!important;
+}
+.whatsapp-float-icon svg{width:44px!important;height:44px!important}
+@media(max-width:600px){
+ .whatsapp-float{
+  right:16px!important;
+  bottom:calc(16px + env(safe-area-inset-bottom))!important;
+  width:56px!important;height:56px!important;
+  min-width:56px!important;min-height:56px!important;
+ }
+ .whatsapp-float-icon{width:43px!important;height:43px!important;flex-basis:43px!important}
+ .whatsapp-float-icon svg{width:43px!important;height:43px!important}
+}
