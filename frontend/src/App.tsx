@@ -4,7 +4,7 @@ const url=import.meta.env.VITE_SUPABASE_URL,key=import.meta.env.VITE_SUPABASE_PU
 // Photos d'illustration Unsplash, choisies par famille de produits.
 // Elles ne représentent pas les emballages officiels Forever Living.
 const imageSets:Record<string,string[]>={
-'Boissons & Aloe Vera':['photo-579608search8','photo-1600271886742-f049cd451bba','photo-1547592180-85f173990554','photo-1540420773420-3366772f4999','photo-1490645935967-10de6ba17061'],
+'Boissons & Aloe Vera':['photo-1608248543803-ba4f8c70ae0b','photo-1600271886742-f049cd451bba','photo-1547592180-85f173990554','photo-1540420773420-3366772f4999','photo-1490645935967-10de6ba17061'],
 'Nutrition':['photo-1576867757603-05b134ebc379','photo-1546069901-ba9599a7e63c','photo-1490645935967-10de6ba17061','photo-1512621776951-a57141f2eefd','photo-1547592180-85f173990554'],
 'Gestion du poids':['photo-1511690743698-d9d85f2fbf38','photo-1490645935967-10de6ba17061','photo-1546069901-ba9599a7e63c','photo-1512621776951-a57141f2eefd'],
 'Produits de la ruche':['photo-1587049352851-8d4e89133924','photo-1587049633312-d628ae50a8ae','photo-1471943311424-646960669fbc','photo-1494412519320-aa613dfb7738'],
