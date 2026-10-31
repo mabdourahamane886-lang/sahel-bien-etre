@@ -135,7 +135,7 @@ const officialProductImages: Record<string, string> = {
 ,
   "669": "https://cdn.foreverliving.com/content/products/images/logic_soothing_gel_moisturizer___pd_main_512_X_512_1745915176525.png"
 ,
-  "672": "https://www.flpshop.hu/public/cache/ceac458bcc4e7daec0b97a20c4932a.jpeg"
+  "672": "https://www.flpshop.hu/public/cache/ceac458bccd7d22a6ab8a5b3a3f5044d.png"
 ,
   "677": "https://cdn.foreverliving.com/content/products/images/refining_gel_mask_pd_main_512_X_512_1745920846077.jpg"
 ,
