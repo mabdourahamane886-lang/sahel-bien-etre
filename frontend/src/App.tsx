@@ -65,16 +65,28 @@ const pdfReferenceCorrections: Record<string, { id: string; name: string; catego
   "643": { id: "643", name: "Forever Alofa™ Fine Fragrance", category: "Parfums" },
   "644": { id: "644", name: "Forever Malosi™ Fine Fragrance", category: "Parfums" }
 };
+// Visuels Unsplash d’illustration pour les fiches sans photo officielle.
+ // Ces images ne représentent pas les emballages Forever : elles illustrent uniquement l’univers de chaque catégorie.
+const unsplashCategoryImages: Record<string, string> = {
+  "Boissons & Aloe Vera": "https://images.unsplash.com/photo-1662673143520-721ed4fbe965?auto=format&fit=crop&w=900&q=85",
+  "Nutrition": "https://images.unsplash.com/photo-1662673143520-721ed4fbe965?auto=format&fit=crop&w=900&q=85",
+  "Gestion du poids": "https://images.unsplash.com/photo-1662673143520-721ed4fbe965?auto=format&fit=crop&w=900&q=85",
+  "Produits de la ruche": "https://images.unsplash.com/photo-1644148290055-1b4b4f6c5b3f?auto=format&fit=crop&w=900&q=85",
+  "Hygiène": "https://images.unsplash.com/photo-1601092410910-3d2e1151e55d?auto=format&fit=crop&w=900&q=85",
+  "Cheveux": "https://images.unsplash.com/photo-1601092410910-3d2e1151e55d?auto=format&fit=crop&w=900&q=85",
+  "Soins du corps": "https://images.unsplash.com/photo-1743927773510-cc1ad4f46217?auto=format&fit=crop&w=900&q=85",
+  "Soins du visage": "https://images.unsplash.com/photo-1743927773510-cc1ad4f46217?auto=format&fit=crop&w=900&q=85",
+  "Parfums": "https://images.unsplash.com/photo-1601092410910-3d2e1151e55d?auto=format&fit=crop&w=900&q=85"
+};
+
 const officialProductImages: Record<string, string> = {
   "815": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/forever-aloe-vera-gel.jpg",
   "048": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/forever-absorbent-c.jpg",
   "284": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/aloe-avocado-face-body-soap.jpg",
-  "067": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/forever-toothgel-ever-shield.jpg",
-  "028": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/forever-toothgel-ever-shield.jpg",
+  // 067 et 028 ne partagent volontairement plus le même visuel : correspondance précédente ambiguë.
   "022": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/aloe-lips.jpg",
   "061": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/aloe-vera-gelly.jpg",
-  "026": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/forever-nutrition-collection.jpg",
-  "036": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/forever-nutrition-collection.jpg",
+  // 026 et 036 utilisent désormais le visuel d’illustration de leur catégorie.
   "633": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/forever-aloe-liquid-soap.jpg",
   "613": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/forever-marine-collagen.jpg",
   "355": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/forever-immublend.jpg",
@@ -94,7 +106,7 @@ const pdfOnlyProducts: Product[] = products
       category: official.category,
       description: "Référence issue du catalogue Forever Côte d’Ivoire 2024-2025. Conditionnement et disponibilité à confirmer.",
       price_xof: null,
-      image_url: officialProductImages[product.id] ?? null
+      image_url: officialProductImages[product.id] ?? unsplashCategoryImages[official.category] ?? null
     };
   })
   .filter((product, index, all) => all.findIndex(item => item.id === product.id) === index);
