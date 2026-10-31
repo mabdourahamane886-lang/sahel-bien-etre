@@ -974,3 +974,25 @@ input::placeholder,textarea::placeholder{color:#a0a99e}
  .whatsapp-float-icon{width:43px!important;height:43px!important;flex-basis:43px!important}
  .whatsapp-float-icon svg{width:43px!important;height:43px!important}
 }
+
+
+/* Animation douce de la photo Aloe Vera sur l’accueil */
+.storefront-product>img{
+ animation:aloeHeroFloat 5s ease-in-out infinite!important;
+ transform-origin:50% 55%;
+ will-change:transform;
+}
+@keyframes aloeHeroFloat{
+ 0%,100%{transform:translate3d(0,0,0) scale(1)}
+ 50%{transform:translate3d(0,-9px,0) scale(1.018)}
+}
+/* Rotation douce des visuels produits de la sélection */
+.featured-single img{
+ animation:productPhotoIn .85s ease both!important;
+}
+.featured-progress span{
+ animation:productProgress 5s linear forwards!important;
+}
+@media(prefers-reduced-motion:reduce){
+ .storefront-product>img,.featured-single img,.featured-progress span{animation:none!important}
+}
