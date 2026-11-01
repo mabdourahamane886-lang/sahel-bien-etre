@@ -1064,3 +1064,180 @@ input::placeholder,textarea::placeholder{color:#a0a99e}
 @media(prefers-reduced-motion:reduce){
   .whatsapp-float{transition:none!important}
 }
+
+
+/* SAHEL BIEN-ÊTRE — système d’interaction premium, fluide et accessible */
+:root{
+  --sb-forest:#183f30;
+  --sb-forest-deep:#123326;
+  --sb-sage:#66865d;
+  --sb-gold:#c5a15b;
+  --sb-cream:#fbfaf6;
+  --sb-line:#e5eae1;
+  --sb-ease:cubic-bezier(.22,.75,.25,1);
+}
+html{scroll-behavior:smooth;scroll-padding-top:104px}
+body{-webkit-font-smoothing:antialiased}
+.site-shell{isolation:isolate}
+.site-header{
+  box-shadow:0 5px 24px rgba(24,63,48,.035);
+  transition:box-shadow .3s var(--sb-ease),background .3s var(--sb-ease);
+}
+.main-nav a{
+  position:relative;
+  padding:12px 0;
+  font-weight:600;
+  transition:color .25s var(--sb-ease);
+}
+.main-nav a:after{
+  content:"";position:absolute;left:0;right:100%;bottom:5px;height:2px;
+  background:var(--sb-gold);transition:right .28s var(--sb-ease);
+}
+.main-nav a:hover:after,.main-nav a:focus-visible:after{right:0}
+.cart-trigger{
+  min-height:44px;padding:8px 14px;border-radius:999px;
+  font-weight:700;transition:all .25s var(--sb-ease);
+  box-shadow:0 2px 8px rgba(24,63,48,.035);
+}
+.cart-trigger:hover{
+  border-color:#b8c8b2;background:#f4f7f1;
+  transform:translateY(-2px);box-shadow:0 8px 18px rgba(24,63,48,.09);
+}
+.cart-trigger b{background:var(--sb-forest);color:#fff}
+button,.button,.storefront-primary,.storefront-secondary,.text-link{
+  -webkit-tap-highlight-color:transparent;
+}
+button:focus-visible,a:focus-visible,input:focus-visible{
+  outline:3px solid rgba(197,161,91,.48);outline-offset:3px;
+}
+.storefront-primary,.button,.product-footer button,.featured-info button,
+.empty-state button,.cart-empty button,.quick-add,.storefront-mini-card>div>button{
+  position:relative;isolation:isolate;overflow:hidden;
+  transition:transform .26s var(--sb-ease),background .26s var(--sb-ease),
+    color .26s var(--sb-ease),box-shadow .26s var(--sb-ease),border-color .26s var(--sb-ease);
+}
+.storefront-primary,.button-dark{
+  min-height:50px;padding:0 23px;border:1px solid var(--sb-forest);
+  border-radius:4px;background:var(--sb-forest);color:#fff;
+  font-size:11px;font-weight:700;letter-spacing:.35px;
+  box-shadow:0 7px 18px rgba(24,63,48,.13);
+}
+.storefront-primary:hover,.button-dark:hover{
+  background:#285b42;border-color:#285b42;color:#fff;
+  transform:translateY(-3px);box-shadow:0 12px 25px rgba(24,63,48,.2);
+}
+.storefront-primary:active,.button:active{transform:translateY(0) scale(.98)}
+.storefront-primary svg,.button svg,.product-footer button svg{
+  transition:transform .25s var(--sb-ease);
+}
+.storefront-primary:hover svg,.button:hover svg,.product-footer button:hover svg{transform:translateX(3px)}
+.storefront-secondary{
+  min-height:44px;display:inline-flex;align-items:center;
+  font-size:11px;font-weight:700;color:var(--sb-forest);
+  transition:color .2s ease,transform .2s ease;
+}
+.storefront-secondary:hover{color:#9a7b43;transform:translateX(3px)}
+.storefront-mini-card>div>button,.product-footer button{
+  min-height:36px;padding:0 12px;border:1px solid #dce7d8;
+  border-radius:3px;background:#eff4ec;color:#31583d;
+  font-size:10px;font-weight:700;
+}
+.storefront-mini-card>div>button:hover,.product-footer button:hover{
+  border-color:var(--sb-forest);background:var(--sb-forest);color:#fff;
+  transform:translateY(-2px);box-shadow:0 6px 14px rgba(24,63,48,.13);
+}
+.quick-add{
+  width:40px;height:40px;border:1px solid rgba(255,255,255,.75);
+  background:#fff;color:var(--sb-forest);box-shadow:0 5px 16px rgba(20,45,27,.13);
+}
+.quick-add:hover{
+  background:var(--sb-forest);color:#fff;transform:translateY(-3px) rotate(90deg);
+  box-shadow:0 9px 20px rgba(20,45,27,.2);
+}
+.category-pills button{
+  min-height:37px;padding:0 14px;border-radius:999px;
+  border-color:#dce5d8;background:rgba(255,255,255,.65);
+  font-size:10px;font-weight:600;
+  transition:all .22s var(--sb-ease);
+}
+.category-pills button:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(24,63,48,.08)}
+.category-pills button.active{
+  background:var(--sb-forest);border-color:var(--sb-forest);
+  box-shadow:0 5px 13px rgba(24,63,48,.15);
+}
+.search-box{
+  min-height:46px;border-radius:4px;
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+.search-box:focus-within{
+  border-color:#91a88a;box-shadow:0 0 0 4px rgba(102,134,93,.10);
+}
+.product-card{
+  border-radius:5px;overflow:hidden;
+  box-shadow:0 3px 14px rgba(24,63,48,.025);
+  transition:transform .35s var(--sb-ease),box-shadow .35s var(--sb-ease),border-color .35s ease;
+}
+.product-card:hover{
+  border-color:#d6e1d1;transform:translateY(-6px);
+  box-shadow:0 18px 38px rgba(24,63,48,.105);
+}
+.product-photo{background:linear-gradient(145deg,#f4f6ef,#e9eee5)}
+.product-photo>img{object-fit:contain;padding:9px}
+.product-info h3{letter-spacing:-.15px}
+.universe-card{border-radius:5px}
+.universe-card:focus-visible{outline-offset:5px}
+.storefront-mini-card{
+  border-radius:5px;box-shadow:0 4px 16px rgba(24,63,48,.035);
+  transition:transform .3s var(--sb-ease),box-shadow .3s var(--sb-ease),border-color .3s ease;
+}
+.storefront-mini-card:hover{
+  border-color:#d4dfcf;transform:translateY(-4px);
+  box-shadow:0 13px 28px rgba(24,63,48,.09);
+}
+.contact-band .button-light{
+  min-height:50px;padding:0 22px;border:1px solid rgba(255,255,255,.8);
+  border-radius:4px;font-weight:700;
+  box-shadow:0 7px 20px rgba(0,0,0,.09);
+}
+.contact-band .button-light:hover{
+  background:#eaf0e6;color:var(--sb-forest);
+  transform:translateY(-3px);box-shadow:0 12px 25px rgba(0,0,0,.15);
+}
+.drawer-head>button,.quantity button{
+  transition:all .2s var(--sb-ease);
+}
+.drawer-head>button:hover,.quantity button:hover{
+  background:var(--sb-forest);border-color:var(--sb-forest);color:#fff;
+  transform:scale(1.06);
+}
+.checkout{
+  min-height:52px;border-radius:4px;letter-spacing:.2px;
+}
+.cart-empty button,.empty-state button{
+  min-height:43px;padding:0 18px;border-radius:4px;
+  background:var(--sb-forest);font-weight:700;
+  box-shadow:0 5px 14px rgba(24,63,48,.13);
+}
+.cart-empty button:hover,.empty-state button:hover{
+  background:#285b42;transform:translateY(-2px);
+  box-shadow:0 9px 20px rgba(24,63,48,.18);
+}
+.toast{border-radius:5px;box-shadow:0 12px 35px rgba(10,35,22,.2)}
+.whatsapp-float{transition:transform .25s var(--sb-ease),box-shadow .25s var(--sb-ease)!important}
+.whatsapp-float:hover{transform:translateY(-4px) scale(1.035)!important}
+@media(max-width:700px){
+  html{scroll-padding-top:82px}
+  .main-nav{border-top:1px solid #edf0e9}
+  .main-nav a{font-weight:600}
+  .cart-trigger{min-width:42px;min-height:42px;justify-content:center}
+  .storefront-primary,.button,.contact-band .button-light{
+    min-height:48px;padding-left:17px;padding-right:17px;
+  }
+  .category-pills{scrollbar-width:none}
+  .category-pills::-webkit-scrollbar{display:none}
+  .product-card:hover{transform:translateY(-2px)}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;
+    animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
