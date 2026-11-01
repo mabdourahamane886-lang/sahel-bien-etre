@@ -294,7 +294,7 @@ export default function App() {
   return <div className="site-shell">
     <header className="site-header">
       <a className="brand" href="#accueil" aria-label="Sahel Bien-Être, accueil">
-        <span className="brand-symbol"><Leaf size={24}/></span>
+        <span className="brand-symbol"><img src="/sahel-logo.svg" alt="" width="24" height="24" /></span>
         <span className="brand-word">SAHEL <strong>BIEN-ÊTRE</strong><small>LA NATURE AU CŒUR DU QUOTIDIEN</small></span>
       </a>
       <nav className={mobileOpen ? 'main-nav is-open' : 'main-nav'}>
