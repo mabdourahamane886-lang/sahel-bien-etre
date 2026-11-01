@@ -1260,3 +1260,126 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   object-fit:cover;
   padding:0;
 }
+
+
+/* ===== SAHEL BIEN-ÊTRE — cartes produits, modèle premium harmonisé ===== */
+.product-grid{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:22px!important;
+  align-items:stretch!important;
+}
+.product-grid .product-card{
+  display:flex!important;
+  flex-direction:column!important;
+  min-width:0!important;
+  overflow:hidden!important;
+  border:1px solid #e4e9df!important;
+  border-radius:12px!important;
+  background:#fff!important;
+  box-shadow:0 3px 12px rgba(24,63,48,.035)!important;
+  transform:translateY(0);
+  transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease!important;
+}
+.product-grid .product-card:hover{
+  border-color:#cbd9c5!important;
+  box-shadow:0 12px 28px rgba(24,63,48,.10)!important;
+  transform:translateY(-4px)!important;
+}
+.product-grid .product-photo{
+  position:relative!important;
+  height:auto!important;
+  aspect-ratio:4/5!important;
+  min-height:0!important;
+  padding:12px!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:hidden!important;
+  background:#f3f5ef!important;
+}
+.product-grid .product-photo>img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  padding:0!important;
+  transition:transform .45s ease!important;
+}
+.product-grid .product-card:hover .product-photo>img{transform:scale(1.045)!important}
+.product-grid .product-category{
+  left:10px!important;top:10px!important;
+  max-width:calc(100% - 58px)!important;
+  padding:6px 9px!important;
+  border:1px solid #e5e9df!important;
+  border-radius:4px!important;
+  background:rgba(255,255,255,.96)!important;
+  color:#587052!important;
+  font-size:8px!important;
+  line-height:1.25!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+.product-grid .quick-add{
+  right:10px!important;bottom:10px!important;
+  width:36px!important;height:36px!important;
+  border:0!important;border-radius:50%!important;
+  display:grid!important;place-items:center!important;
+  background:#183f30!important;color:#fff!important;
+  box-shadow:0 4px 12px rgba(24,63,48,.18)!important;
+}
+.product-grid .quick-add:hover{background:#66865d!important;transform:translateY(-2px)!important}
+.product-grid .product-info{
+  display:flex!important;flex:1!important;flex-direction:column!important;
+  padding:15px 15px 14px!important;
+}
+.product-grid .product-info>small{
+  color:#a18a5c!important;font-size:8px!important;letter-spacing:1.1px!important;
+}
+.product-grid .product-info h3{
+  min-height:42px!important;margin:7px 0!important;
+  color:#244a35!important;font:600 16px/1.3 'Playfair Display',serif!important;
+}
+.product-grid .product-info>p{
+  min-height:48px!important;margin:0!important;
+  color:#7e897d!important;font-size:10px!important;line-height:1.65!important;
+}
+.product-grid .product-footer{
+  margin-top:auto!important;padding-top:12px!important;
+  border-top:1px solid #edf0e9!important;
+  display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;
+}
+.product-grid .product-footer strong{color:#426247!important;font-size:10px!important}
+.product-grid .product-footer button{
+  min-height:34px!important;padding:0 11px!important;
+  border:1px solid #dce6d8!important;border-radius:4px!important;
+  background:#eff4ec!important;color:#31583d!important;
+  display:inline-flex!important;align-items:center!important;gap:6px!important;
+  font-size:9px!important;font-weight:700!important;white-space:nowrap!important;
+}
+.product-grid .product-footer button:hover{
+  border-color:#183f30!important;background:#183f30!important;color:#fff!important;
+}
+.product-grid .product-photo-pending{border-radius:0!important}
+@media(max-width:1050px){
+ .product-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important}
+}
+@media(max-width:700px){
+ .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+ .product-grid .product-card{border-radius:9px!important}
+ .product-grid .product-photo{padding:8px!important}
+ .product-grid .product-info{padding:11px 10px 10px!important}
+ .product-grid .product-info h3{font-size:14px!important;min-height:38px!important}
+ .product-grid .product-info>p{font-size:9px!important;min-height:44px!important}
+ .product-grid .product-footer{gap:5px!important}
+ .product-grid .product-footer button{padding:0 8px!important;font-size:8px!important}
+ .product-grid .quick-add{width:32px!important;height:32px!important}
+}
+@media(max-width:360px){
+ .product-grid{gap:9px!important}
+ .product-grid .product-info h3{font-size:13px!important}
+ .product-grid .product-footer strong{font-size:9px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .product-grid .product-card,.product-grid .product-photo>img{transition:none!important}
+}
