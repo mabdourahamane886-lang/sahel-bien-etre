@@ -103,6 +103,7 @@ const pdfReferenceCorrections: Record<string, { id: string; name: string; catego
 // Photos officielles individuelles hébergées dans Smooth Bundle.
 // Chaque fichier est associé uniquement à la référence du produit correspondant.
 const officialProductImages: Record<string, string> = {
+  "635": "https://www.foreveralbania.com/wp-content/uploads/2020/11/syjp-400x400.jpeg",
   "815": "https://www.foreverlivingmexico.com/images/ForeverAloeVeraGel.png",
   "473": "https://www.foreverliving.fr/storage/products/albums/forever-argi/forever-argi-2023-05-16-6463911908115.webp",
   "475": "https://gallery.foreverliving.com/gallery/FLP/image/2016_New_Products/C9_large.png",
