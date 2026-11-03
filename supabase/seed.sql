@@ -80,4 +80,14 @@ values
 ('Infinite by Forever','infinite-by-forever','Soins du visage','Référence Forever Living Products — code catalogue 553. Vérifier le conditionnement, la composition et les consignes sur l’emballage officiel.',null,false,false),
 ('Forever Alofa Fine Fragrance','forever-alofa-fine-fragrance','Parfums','Référence Forever Living Products — code catalogue 643. Vérifier le conditionnement, la composition et les consignes sur l’emballage officiel.',null,false,false),
 ('Forever Malosi Fine Fragrance','forever-malosi-fine-fragrance','Parfums','Référence Forever Living Products — code catalogue 644. Vérifier le conditionnement, la composition et les consignes sur l’emballage officiel.',null,false,false)
+
+('Forever Vital5','forever-vital5','Nutrition','Programme nutritionnel Vital5 de Forever. Vérifier le contenu exact, les variantes et les conseils sur l’emballage officiel.',null,false,false),
+('Programme Forever F15 Débutant Vanille','programme-forever-f15-debutant-vanille','Gestion du poids','Programme F15 de 15 jours. Vérifier le niveau, la saveur et le contenu exact du coffret sur l’emballage officiel.',null,false,false),
+('Programme Forever C9 Vanille','programme-forever-c9-vanille','Gestion du poids','Programme C9 de 9 jours. Vérifier la variante et le contenu exact du coffret sur l’emballage officiel.',null,false,false)
 on conflict(slug) do update set name=excluded.name,category=excluded.category,description=excluded.description;
+update public.products set image_url = case slug
+  when 'forever-vital5' then 'https://cdn.foreverliving.com/content/products/images/vital5_freedom_nl_pd_main_512_X_512_1628176109519.jpg'
+  when 'programme-forever-f15-debutant-vanille' then 'https://foreverliving.gr/media/CACHE/images/product/photo/a4/a40e/a40ea30d/a40ea30de7574bda/d1d6851f652037245494c985956346e9.png'
+  when 'programme-forever-c9-vanille' then 'https://cdn.foreverliving.com/content/products/images/__C9_VANILIE-FOREVER_ALOE_VERA_GEL_pd_main_512_X_512_1747381866217.jpg'
+  else image_url end
+where slug in ('forever-vital5','programme-forever-f15-debutant-vanille','programme-forever-c9-vanille');
