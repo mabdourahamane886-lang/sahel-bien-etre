@@ -79,7 +79,7 @@ values
 ('Infinite Firming Complex','infinite-firming-complex','Soins du visage','Référence Forever Living Products — code catalogue 556. Vérifier le conditionnement, la composition et les consignes sur l’emballage officiel.',null,false,false),
 ('Infinite by Forever','infinite-by-forever','Soins du visage','Référence Forever Living Products — code catalogue 553. Vérifier le conditionnement, la composition et les consignes sur l’emballage officiel.',null,false,false),
 ('Forever Alofa Fine Fragrance','forever-alofa-fine-fragrance','Parfums','Référence Forever Living Products — code catalogue 643. Vérifier le conditionnement, la composition et les consignes sur l’emballage officiel.',null,false,false),
-('Forever Malosi Fine Fragrance','forever-malosi-fine-fragrance','Parfums','Référence Forever Living Products — code catalogue 644. Vérifier le conditionnement, la composition et les consignes sur l’emballage officiel.',null,false,false)
+('Forever Malosi Fine Fragrance','forever-malosi-fine-fragrance','Parfums','Référence Forever Living Products — code catalogue 644. Vérifier le conditionnement, la composition et les consignes sur l’emballage officiel.',null,false,false),
 
 ('Forever Vital5','forever-vital5','Nutrition','Programme nutritionnel Vital5 de Forever. Vérifier le contenu exact, les variantes et les conseils sur l’emballage officiel.',null,false,false),
 ('Programme Forever F15 Débutant Vanille','programme-forever-f15-debutant-vanille','Gestion du poids','Programme F15 de 15 jours. Vérifier le niveau, la saveur et le contenu exact du coffret sur l’emballage officiel.',null,false,false),
