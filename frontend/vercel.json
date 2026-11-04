@@ -1,0 +1,19 @@
+{
+  "rewrites": [
+    {
+      "source": "/produit/:id",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i)(WhatsApp|facebookexternalhit|Facebot|Twitterbot|LinkedInBot|TelegramBot|Slackbot|Discordbot)"
+        }
+      ],
+      "destination": "/api/produit/:id"
+    },
+    {
+      "source": "/produit/:id",
+      "destination": "/index.html"
+    }
+  ]
+}
