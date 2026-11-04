@@ -248,7 +248,11 @@ const money = (value: number | null) => value == null ? 'Prix sur demande' : new
 
 type Product = { id: string; name: string; category: string; description: string; price_xof: number | null; image_url?: string | null };
 type CartLine = { product: Product; quantity: number };
-const imageFor = (product: Product): string | null => product.image_url?.startsWith('http') ? product.image_url : null;
+const imageFor = (product: Product): string | null => {
+  const mappedImage = officialProductImages[product.id];
+  if (mappedImage?.startsWith('https://')) return mappedImage;
+  return product.image_url?.startsWith('https://') ? product.image_url : null;
+};
 
 export default function App() {
   const [query, setQuery] = useState('');
