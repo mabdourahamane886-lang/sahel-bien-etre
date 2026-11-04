@@ -16,10 +16,10 @@ export default function handler(req: any, res: any) {
     res.status(404).setHeader('Content-Type', 'text/html; charset=utf-8');
     return res.end('<!doctype html><html lang="fr"><meta charset="utf-8"><title>Produit introuvable — Sahel Bien-Être</title><body><h1>Produit introuvable</h1><a href="/">Retour à la boutique</a></body></html>');
   }
-  const base = 'https://sahel-bien-etre-iz3z.vercel.app';
+  const base = 'https://sahel-bien-etre.win';
   const slug = slugify(product.name);
   const url = base + '/produit/' + encodeURIComponent(slug);
-  const image = product.image_url && product.image_url.trim().toLowerCase().startsWith('https://') ? product.image_url.trim() : base + '/sahel-logo.svg';
+  const image = product.image_url && product.image_url.trim().toLowerCase().startsWith('https://') ? product.image_url.trim() : 'https://www.foreverlivingmexico.com/images/ForeverAloeVeraGel.png';
   const title = product.name + ' | Sahel Bien-Être';
   const description = product.description || 'Découvrez ce produit chez Sahel Bien-Être à Niamey.';
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
