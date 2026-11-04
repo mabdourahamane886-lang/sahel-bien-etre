@@ -269,7 +269,7 @@ export default function App() {
 
   useEffect(() => {
     const syncProductRoute = () => {
-      const match = window.location.pathname.match(/^\\/produit\\/([^/]+)\\/?$/);
+      const match = window.location.pathname.match(/^\/produit\/([^/]+)\/?$/);
       if (!match) { setSelectedProduct(null); return; }
       const routeId = decodeURIComponent(match[1]);
       const internalId = routeId === '815' ? '716 / 015' : routeId;
