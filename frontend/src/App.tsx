@@ -274,7 +274,7 @@ export default function App() {
       if (!match) { setSelectedProduct(null); return; }
       const routeId = decodeURIComponent(match[1]);
       const internalId = routeId === '815' ? '716 / 015' : routeId;
-      setSelectedProduct(catalog.find(product => product.id === internalId) || null);
+      setSelectedProduct(catalog.find(product => product.id === internalId || productRouteId(product) === routeId) || null);
     };
     syncProductRoute();
     window.addEventListener('popstate', syncProductRoute);
@@ -284,10 +284,7 @@ export default function App() {
   const openProduct = (product: Product) => {
     window.history.pushState({}, '', productUrl(product).replace(window.location.origin, ''));
     setSelectedProduct(product);
-    // La fiche est rendue en bas de la page : amener directement l’utilisateur dessus.
-    window.setTimeout(() => {
-      document.querySelector('.product-detail-page')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 80);
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
   };
   const closeProduct = () => {
     if (window.location.pathname.startsWith('/produit/')) window.history.pushState({}, '', '/');
@@ -468,16 +465,18 @@ export default function App() {
       </section>
 
       <section className="contact-band" id="contact"><div><span className="kicker">NOUS SOMMES À VOTRE ÉCOUTE</span><h2>Un produit vous intéresse ?</h2><p>Écrivez-nous pour connaître son prix, sa disponibilité et les modalités de livraison.</p></div><a className="button button-light" href={whatsappNumber ? 'https://wa.me/' + whatsappNumber : '#boutique'} target={whatsappNumber ? '_blank' : undefined} rel="noreferrer">{whatsappNumber ? 'Parlons de votre besoin' : 'Voir les produits'} <ArrowRight size={17}/></a></section>
-      {selectedProduct && <section className="product-detail-page" aria-label={"Fiche produit " + selectedProduct.name}>
-        <div className="product-detail-top"><button type="button" onClick={closeProduct}><ArrowLeft size={17}/> Retour à la boutique</button><span>SAHEL BIEN-ÊTRE · FICHE PRODUIT</span></div>
-        <div className="product-detail-layout">
-          <div className="product-detail-visual">{imageFor(selectedProduct) ? <img src={imageFor(selectedProduct)!} alt={selectedProduct.name}/> : <div className="product-photo-pending"><Leaf size={40}/><span>Photo officielle à confirmer</span></div>}</div>
-          <div className="product-detail-copy"><span className="kicker">{selectedProduct.category}</span><h1>{selectedProduct.name}</h1><p className="product-detail-reference">Référence catalogue : {productRouteId(selectedProduct)}</p><strong className="product-detail-price">{money(selectedProduct.price_xof)}</strong><p>{selectedProduct.description}</p>
-            <div className="product-detail-facts"><h3>Informations produit</h3><p><b>Composition :</b> se référer à la liste des ingrédients figurant sur l’emballage officiel de cette référence.</p><p><b>Conseils d’utilisation :</b> suivre exclusivement les indications du fabricant sur l’étiquette.</p><p><b>Précautions :</b> vérifier les ingrédients, allergènes, âge recommandé et avertissements avant utilisation. En cas de doute, demander conseil à un professionnel de santé.</p><p className="product-detail-note">Les produits présentés ne sont pas des médicaments et ne remplacent pas un avis médical. Prix et disponibilité au Niger à confirmer.</p></div>
-            <div className="product-detail-actions"><button type="button" onClick={() => copyProductLink(selectedProduct)}><Copy size={16}/> Copier le lien</button><a href={"https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent("Bonjour SAHEL BIEN-ÊTRE, je souhaite des informations sur " + selectedProduct.name + " (réf. " + productRouteId(selectedProduct) + "). Voici la fiche : " + productUrl(selectedProduct))} target="_blank" rel="noopener noreferrer">Partager sur WhatsApp <ArrowRight size={16}/></a></div>
+      {selectedProduct && <div className="product-file-overlay" role="presentation" onMouseDown={event => { if (event.target === event.currentTarget) closeProduct(); }}>
+        <section className="product-detail-page product-file-modal" role="dialog" aria-modal="true" aria-label={"Fiche produit " + selectedProduct.name}>
+          <div className="product-detail-top"><span className="product-file-brand"><Leaf size={17}/> SAHEL BIEN-ÊTRE <small>FICHE PRODUIT</small></span><button type="button" className="product-file-close" onClick={closeProduct}><X size={19}/> Fermer</button></div>
+          <div className="product-detail-layout">
+            <div className="product-detail-visual">{imageFor(selectedProduct) ? <img src={imageFor(selectedProduct)!} alt={selectedProduct.name}/> : <div className="product-photo-pending"><Leaf size={40}/><span>Photo officielle à confirmer</span></div>}<span className="product-file-image-caption">SAHEL BIEN-ÊTRE · NIAMEY</span></div>
+            <div className="product-detail-copy"><span className="kicker">{selectedProduct.category}</span><h1>{selectedProduct.name}</h1><p className="product-detail-reference">Référence catalogue : {productRouteId(selectedProduct)}</p><strong className="product-detail-price">{money(selectedProduct.price_xof)}</strong><p>{selectedProduct.description}</p>
+              <div className="product-detail-facts"><h3>Informations produit</h3><p><b>Composition :</b> se référer à la liste des ingrédients figurant sur l’emballage officiel de cette référence.</p><p><b>Conseils d’utilisation :</b> suivre exclusivement les indications du fabricant sur l’étiquette.</p><p><b>Précautions :</b> vérifier les ingrédients, allergènes, âge recommandé et avertissements avant utilisation. En cas de doute, demander conseil à un professionnel de santé.</p><p className="product-detail-note">Les produits présentés ne sont pas des médicaments et ne remplacent pas un avis médical. Prix et disponibilité au Niger à confirmer.</p></div>
+              <div className="product-detail-actions"><button type="button" onClick={() => copyProductLink(selectedProduct)}><Copy size={16}/> Copier le lien</button><a href={"https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent("Bonjour SAHEL BIEN-ÊTRE, je souhaite des informations sur " + selectedProduct.name + " (réf. " + productRouteId(selectedProduct) + "). Voici la fiche : " + productUrl(selectedProduct))} target="_blank" rel="noopener noreferrer">Commander / WhatsApp <ArrowRight size={16}/></a></div>
+            </div>
           </div>
-        </div>
-      </section>}
+        </section>
+      </div>}
     </main>
 
     <a className="whatsapp-float" href={'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent('Bonjour SAHEL BIEN-ÊTRE, je souhaite obtenir des informations sur vos produits.') } target="_blank" rel="noopener noreferrer" aria-label="Contacter SAHEL BIEN-ÊTRE sur WhatsApp">
