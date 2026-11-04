@@ -106,7 +106,6 @@ const officialProductImages: Record<string, string> = {
   "635": "https://www.foreveralbania.com/wp-content/uploads/2020/11/syjp-400x400.jpeg",
   "815": "https://www.foreverlivingmexico.com/images/ForeverAloeVeraGel.png",
   "473": "https://www.foreverliving.fr/storage/products/albums/forever-argi/forever-argi-2023-05-16-6463911908115.webp",
-  "475": "https://gallery.foreverliving.com/gallery/FLP/image/2016_New_Products/C9_large.png",
   "048": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/forever-absorbent-c.jpg",
   "284": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/aloe-avocado-face-body-soap.jpg",
   "067": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/aloe-ever-shield.jpg",
