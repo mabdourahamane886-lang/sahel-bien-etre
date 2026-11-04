@@ -14,7 +14,7 @@ export default function handler(req: any, res: any) {
   const base = 'https://sahel-bien-etre-iz3z.vercel.app';
   const routeId = product.id === '716 / 015' ? product.reference : product.id;
   const url = base + '/produit/' + encodeURIComponent(routeId);
-  const image = product.image_url || base + '/sahel-logo.svg';
+  const image = product.image_url && /^https:\/\//i.test(product.image_url) ? product.image_url : base + '/sahel-logo.svg';
   const title = product.name + ' | Sahel Bien-Être';
   const description = product.description || 'Découvrez ce produit chez Sahel Bien-Être à Niamey.';
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
@@ -26,7 +26,7 @@ export default function handler(req: any, res: any) {
 <meta property="og:type" content="product"><meta property="og:site_name" content="Sahel Bien-Être">
 <meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}">
 <meta property="og:url" content="${escapeHtml(url)}"><meta property="og:image" content="${escapeHtml(image)}">
-<meta property="og:image:alt" content="${escapeHtml(product.name)}"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:image:alt" content="${escapeHtml(product.name)}"><meta property="og:image:secure_url" content="${escapeHtml(image)}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="1200"><meta name="robots" content="index,follow,max-image-preview:large"><meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${escapeHtml(title)}"><meta name="twitter:description" content="${escapeHtml(description)}"><meta name="twitter:image" content="${escapeHtml(image)}">
 <meta http-equiv="refresh" content="0;url=${escapeHtml(url)}"></head>
 <body><h1>${escapeHtml(product.name)}</h1><p>${escapeHtml(description)}</p><p><a href="${escapeHtml(url)}">Voir le produit sur Sahel Bien-Être</a></p></body></html>`);
