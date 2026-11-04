@@ -264,7 +264,8 @@ export default function App() {
   const [featuredIndex, setFeaturedIndex] = useState(0);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const catalog: Product[] = pdfOnlyProducts;
-  const productRouteId = (product: Product) => product.id === '716 / 015' ? '815' : product.id;
+  const productSlug = (name: string) => name.normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const productRouteId = (product: Product) => productSlug(product.name) || (product.id === '716 / 015' ? '815' : product.id);
   const productUrl = (product: Product) => window.location.origin + '/produit/' + encodeURIComponent(productRouteId(product));
 
   useEffect(() => {
@@ -281,7 +282,7 @@ export default function App() {
   }, []);
 
   const openProduct = (product: Product) => {
-    window.history.pushState({}, '', '/produit/' + encodeURIComponent(productRouteId(product)));
+    window.history.pushState({}, '', productUrl(product).replace(window.location.origin, ''));
     setSelectedProduct(product);
     // La fiche est rendue en bas de la page : amener directement l’utilisateur dessus.
     window.setTimeout(() => {
