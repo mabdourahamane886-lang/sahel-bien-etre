@@ -281,10 +281,22 @@ export default function App() {
     return () => window.removeEventListener('popstate', syncProductRoute);
   }, []);
 
+  useEffect(() => {
+    if (!selectedProduct) return;
+    const previousOverflow = document.body.style.overflow;
+    const previousPaddingRight = document.body.style.paddingRight;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = 'hidden';
+    if (scrollbarWidth > 0) document.body.style.paddingRight = scrollbarWidth + 'px';
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.body.style.paddingRight = previousPaddingRight;
+    };
+  }, [selectedProduct]);
+
   const openProduct = (product: Product) => {
     window.history.pushState({}, '', productUrl(product).replace(window.location.origin, ''));
     setSelectedProduct(product);
-    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
   };
   const closeProduct = () => {
     if (window.location.pathname.startsWith('/produit/')) window.history.pushState({}, '', '/');
