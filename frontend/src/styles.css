@@ -1523,7 +1523,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
 }
 
 /* Fiche produit interne — fenêtre modale premium */
-.product-file-overlay{position:fixed;inset:0;z-index:120;background:rgba(10,27,19,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:24px;overflow-y:auto;animation:productOverlayIn .22s ease both}
+.product-file-overlay{position:fixed;inset:0;z-index:120;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;display:flex;align-items:center;justify-content:center;padding:24px;overflow-y:auto;animation:productOverlayIn .22s ease both}
 .product-file-modal{position:relative;width:min(1040px,100%);max-height:min(850px,calc(100dvh - 48px));overflow-y:auto;background:#fff;border:1px solid #e8ede4;box-shadow:0 30px 90px rgba(0,0,0,.28);padding:clamp(18px,3vw,34px);animation:productModalIn .28s cubic-bezier(.2,.7,.25,1) both}
 .product-file-modal .product-detail-top{display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid #edf0e9;padding:0 0 18px;margin-bottom:25px}
 .product-file-brand{display:flex;align-items:center;gap:9px;color:#244b35;font-size:11px;font-weight:800;letter-spacing:1.2px}
