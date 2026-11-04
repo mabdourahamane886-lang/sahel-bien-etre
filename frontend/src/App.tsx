@@ -104,7 +104,7 @@ const pdfReferenceCorrections: Record<string, { id: string; name: string; catego
 // Chaque fichier est associé uniquement à la référence du produit correspondant.
 const officialProductImages: Record<string, string> = {
   "635": "https://www.foreveralbania.com/wp-content/uploads/2020/11/syjp-400x400.jpeg",
-  "815": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/forever-aloe-vera-gel.jpg",
+  "815": "https://happypets.ae/cdn/shop/products/aloe-vera-gel-health-support-441_1080x.jpg?v=1599052177",
   "473": "https://www.foreverliving.fr/storage/products/albums/forever-argi/forever-argi-2023-05-16-6463911908115.webp",
   "048": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/forever-absorbent-c.jpg",
   "284": "https://cdn.smoothbundle.com/abdourahamane-mohamed/sahel-bien-etre-produits/products/aloe-avocado-face-body-soap.jpg",
