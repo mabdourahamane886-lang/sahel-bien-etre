@@ -218,7 +218,7 @@ const officialProductImages: Record<string, string> = {
   "1318": "https://cdn.foreverliving.com/content/products/images/Forever_Hand_Sanitizer__pd_main_512_X_512_1706878877776.jpg",
   "457": "https://cdn.foreverliving.com/content/products/images/vital5_freedom_nl_pd_main_512_X_512_1628176109519.jpg",
   "528": "https://foreverliving.gr/media/CACHE/images/product/photo/a4/a40e/a40ea30d/a40ea30de7574bda/d1d6851f652037245494c985956346e9.png",
-  "475": "https://cdn.foreverliving.com/content/products/images/__C9_VANILIE-FOREVER_ALOE_VERA_GEL_pd_main_512_X_512_1747381866217.jpg",
+  "475": "https://foreverliving.gr/media/CACHE/images/product/photo/11/11f9/11f9562a/11f9562a880f429e/519cb72ea41d098e6dc35b8e3050ab04.jpg",
   "634": "https://shop.foreverliving.it/templates/backoffice/img/articoli/2011.694.png"
 };
 const pdfReferenceIds = new Set(Object.keys(pdfReferenceCorrections));
