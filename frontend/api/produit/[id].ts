@@ -1,11 +1,10 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
 import catalog from '../product-catalog.json';
 
 type Product = { id: string; reference: string; name: string; category: string; description: string; image_url?: string | null; price_xof?: number | null };
 
 const escapeHtml = (value: string) => value.replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char] as string));
 
-export default function handler(req: VercelRequest, res: VercelResponse) {
+export default function handler(req: any, res: any) {
   const id = String(req.query.id || req.query.slug || '');
   const product = (catalog as Product[]).find(item => item.reference === id || item.id === id);
   if (!product) {
