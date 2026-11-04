@@ -12,7 +12,8 @@ export default function handler(req: any, res: any) {
     return res.end('<!doctype html><html lang="fr"><meta charset="utf-8"><title>Produit introuvable — Sahel Bien-Être</title><body><h1>Produit introuvable</h1><a href="/">Retour à la boutique</a></body></html>');
   }
   const base = 'https://sahel-bien-etre-iz3z.vercel.app';
-  const url = base + '/produit/' + encodeURIComponent(product.reference);
+  const routeId = product.id === '716 / 015' ? product.reference : product.id;
+  const url = base + '/produit/' + encodeURIComponent(routeId);
   const image = product.image_url || base + '/sahel-logo.svg';
   const title = product.name + ' | Sahel Bien-Être';
   const description = product.description || 'Découvrez ce produit chez Sahel Bien-Être à Niamey.';
