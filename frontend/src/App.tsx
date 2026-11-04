@@ -263,7 +263,8 @@ export default function App() {
   const [notice, setNotice] = useState('');
   const [featuredIndex, setFeaturedIndex] = useState(0);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const catalog: Product[] = pdfOnlyProducts;
+  const isAloeVeraGel = (product: Product) => product.id === '716 / 015' || product.name.toLowerCase().includes('aloe vera gel');
+  const catalog: Product[] = [...pdfOnlyProducts].sort((a, b) => Number(isAloeVeraGel(b)) - Number(isAloeVeraGel(a)));
   const productSlug = (name: string) => name.normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
   const productRouteId = (product: Product) => productSlug(product.name) || (product.id === '716 / 015' ? '815' : product.id);
   const productUrl = (product: Product) => window.location.origin + '/produit/' + encodeURIComponent(productRouteId(product));
@@ -319,7 +320,7 @@ export default function App() {
   const count = cart.reduce((total, line) => total + line.quantity, 0);
   const featuredProducts = useMemo(() => catalog.filter(product => imageFor(product)), [catalog]);
   const currentFeatured = featuredProducts.length ? featuredProducts[featuredIndex % featuredProducts.length] : null;
-  const heroProduct = catalog.find(product => product.id === '815' && imageFor(product)) || featuredProducts[0] || null;
+  const heroProduct = catalog.find(product => isAloeVeraGel(product) && imageFor(product)) || featuredProducts[0] || null;
 
 
   useEffect(() => {
